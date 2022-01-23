@@ -64,4 +64,23 @@
 }
 .header__icon-container {
   padding-left: 4rem;
+}
+.header__upload-container {
+  width: 100%;
+  padding: 3rem;
+  padding-top: 1rem;
+}
+.header__upload-button {
+  height: 10rem;
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextBold;
+  color: #ffffff;
+  background: url("../assets/Icons/upload.svg"), #0095ff;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 1rem 2.5rem;
 }/*# sourceMappingURL=header.css.map */

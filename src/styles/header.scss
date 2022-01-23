@@ -50,4 +50,21 @@
   &__icon-container {
     padding-left: 4rem;
   }
+  &__upload-container {
+    width: 100%;
+    padding: 3rem;
+    padding-top: 1rem;
+  }
+  &__upload-button {
+    height: 10rem;
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid;
+    @include subHeaderMobile();
+    color: $primary-color-white;
+    background: url("../assets/Icons/upload.svg"), $primary-color-blue;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 1rem 2.5rem;
+  }
 }

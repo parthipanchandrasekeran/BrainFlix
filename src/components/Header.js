@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import logo from "../assets/Logo/BrainFlix-logo.svg";
 import headerIcon from "../assets/Images/Mohan-muruge.jpg";
-import uploadIcon from "../assets/Icons/upload.svg";
 import "../styles/header.scss";
 
 export default class Header extends Component {
@@ -28,11 +27,6 @@ export default class Header extends Component {
         </div>
 
         <div className="header__upload-container">
-          <img
-            className="header__upload-icon"
-            src={uploadIcon}
-            alt="uploadIcon"
-          />
           <button className="header__upload-button">Upload</button>
         </div>
       </div>
