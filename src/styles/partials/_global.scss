@@ -1,0 +1,51 @@
+@font-face {
+  font-family: averiNextBold;
+  src: url(../../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: averiNextRegular;
+  src: url(../../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 4px;
+  font-family: "averiNextBold";
+  box-sizing: border-box;
+}
+
+//mobile styles
+
+@mixin pageHeaderMobile {
+  font-size: 6rem;
+  line-height: 8rem;
+  font-family: averiNextBold;
+}
+
+@mixin sectionHeaderMobile {
+  font-size: 3rem;
+  line-height: 5rem;
+  font-family: averiNextBold;
+}
+
+@mixin subHeaderMobile {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextBold;
+}
+
+@mixin bodyCopyMobile {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextRegular;
+}
+
+@mixin labelButtonMobile {
+  font-size: 3rem;
+  line-height: 5rem;
+  font-family: averiNextBold;
+}
