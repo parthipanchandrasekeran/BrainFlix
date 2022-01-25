@@ -1,0 +1,17 @@
+@import "./partials/colors";
+@import "./partials/global";
+
+.Hero-container__main {
+  width: 100%;
+  padding-top: 56.25%;
+  height: 0px;
+  position: relative;
+}
+
+.Hero-container__main-video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
