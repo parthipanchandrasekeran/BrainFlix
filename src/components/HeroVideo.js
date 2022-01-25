@@ -5,7 +5,6 @@ export default class HeroVideo extends Component {
   render() {
     return (
       <div className="Hero-container__main">
-        image: "https://i.imgur.com/l2Xfgpl.jpg",
         <video
           className="Hero-container__main-video"
           controls

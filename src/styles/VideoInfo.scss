@@ -1,0 +1,10 @@
+@import "./partials/colors";
+@import "./partials/global";
+
+.video-details-container {
+  &__heading {
+    @include pageHeaderMobile();
+    padding: 4rem;
+    padding-top: 6rem;
+  }
+}
