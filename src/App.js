@@ -1,14 +1,14 @@
 import "./App.css";
 import VideoDetails from "./components/VideoList/VideoDetails";
 import Header from "./components/Header";
-import HeroVideo from "./components/HeroVideo";
 import VideoInfo from "./components/VideoInfo";
+import VideoContainer from "./components/VideoList/VideoContainer";
 
 function App() {
   return (
     <div>
       <Header />
-      <HeroVideo />
+      <VideoContainer />
       <VideoInfo />
       <VideoDetails />
     </div>
