@@ -5,9 +5,11 @@ import likesicon from "../../assets/Icons/likes.svg";
 function VideoDetails(props) {
   return (
     <div className="video-details-container">
-      <h1 className="video-details-container__heading">
-        {props.details.title}
-      </h1>
+      <div className="video-details-container__heading-container">
+        <h1 className="video-details-container__heading">
+          {props.details.title}
+        </h1>
+      </div>
       <section className="video-details-container__details-container">
         <div className="video-details-container__left-section">
           <p className="video-details-container__channel-name">

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/VideoInfo.scss";
+import "../styles/VideoDetails.scss";
 import "../styles/hero-container.scss";
 import VideoDetails from "./VideoDetails/VideoDetails";
 import HeroVideo from "./HeroVideo";

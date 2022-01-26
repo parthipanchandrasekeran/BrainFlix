@@ -1,0 +1,47 @@
+@import "./partials/colors";
+@import "./partials/global";
+
+.video-details-container {
+  &__details-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__heading-container {
+    border-bottom: 1px solid $primary-color-silver;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    padding-top: 6rem;
+  }
+  &__heading {
+    @include pageHeaderMobile();
+    padding-bottom: 4rem;
+  }
+
+  &__details-container {
+    display: flex;
+  }
+
+  &__details-container {
+    padding: 4rem;
+  }
+
+  &__left-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__channel-name {
+    @include sectionHeaderMobile();
+  }
+
+  &__time-stamp {
+    @include bodyCopyMobile();
+  }
+  &__views-container {
+    display: flex;
+  }
+
+  &__likes-container {
+    display: flex;
+  }
+}

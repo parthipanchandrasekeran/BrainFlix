@@ -1,0 +1,60 @@
+@font-face {
+  font-family: averiNextBold;
+  src: url(../../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: averiNextRegular;
+  src: url(../../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 4px;
+  font-family: "averiNextBold";
+  box-sizing: border-box;
+}
+
+.video-details-container__details-container {
+  display: flex;
+  justify-content: space-between;
+}
+.video-details-container__heading-container {
+  border-bottom: 1px solid #afafaf;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  padding-top: 6rem;
+}
+.video-details-container__heading {
+  font-size: 6rem;
+  line-height: 8rem;
+  font-family: averiNextBold;
+  padding-bottom: 4rem;
+}
+.video-details-container__details-container {
+  display: flex;
+}
+.video-details-container__details-container {
+  padding: 4rem;
+}
+.video-details-container__left-section {
+  display: flex;
+  flex-direction: column;
+}
+.video-details-container__channel-name {
+  font-size: 3rem;
+  line-height: 5rem;
+  font-family: averiNextBold;
+}
+.video-details-container__time-stamp {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextRegular;
+}
+.video-details-container__views-container {
+  display: flex;
+}
+.video-details-container__likes-container {
+  display: flex;
+}/*# sourceMappingURL=VideoDetails.css.map */
