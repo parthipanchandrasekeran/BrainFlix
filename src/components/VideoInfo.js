@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../styles/VideoInfo.scss";
+import "../styles/hero-container.scss";
 import VideoDetails from "./VideoDetails/VideoDetails";
+import HeroVideo from "./HeroVideo";
 
 export default class VideoInfo extends Component {
   render() {
@@ -318,9 +320,10 @@ export default class VideoInfo extends Component {
     ];
 
     return (
-      <div>
-        <VideoDetails details={videoTotalData[0]} />
-      </div>
+      <>
+        <HeroVideo mainVideo={videoTotalData[0].image} />
+        <VideoDetails details={videoTotalData[0]} key={videoTotalData[0].id} />
+      </>
     );
   }
 }
