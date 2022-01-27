@@ -319,10 +319,34 @@ export default class VideoInfo extends Component {
       },
     ];
 
+    function dateFormatter() {
+      const dateFormated = videoTotalData[0].timestamp;
+      const commentDate = new Date(dateFormated);
+      //const dateActual = commentDate.toDateString();
+
+      let month = commentDate.getMonth() + 1;
+      let day = commentDate.getDate();
+      const year = commentDate.getFullYear();
+
+      if (month / 10 < 1) {
+        month = "0" + month;
+      }
+
+      if (day / 10 < 1) {
+        day = "0" + day;
+      }
+      const actualDate = month + "/" + day + "/" + year;
+      return actualDate;
+    }
+
     return (
       <>
         <HeroVideo mainVideo={videoTotalData[0].image} />
-        <VideoDetails details={videoTotalData[0]} key={videoTotalData[0].id} />
+        <VideoDetails
+          details={videoTotalData[0]}
+          key={videoTotalData[0].id}
+          date={dateFormatter()}
+        />
       </>
     );
   }

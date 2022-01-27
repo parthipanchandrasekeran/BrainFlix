@@ -5,9 +5,14 @@
   &__details-container {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid $secondary-color-mercury;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    align-items: center;
+    align-content: center;
   }
   &__heading-container {
-    border-bottom: 1px solid $primary-color-silver;
+    border-bottom: 1px solid $secondary-color-mercury;
     margin-left: 4rem;
     margin-right: 4rem;
     padding-top: 6rem;
@@ -17,17 +22,10 @@
     padding-bottom: 4rem;
   }
 
-  &__details-container {
-    display: flex;
-  }
-
-  &__details-container {
-    padding: 4rem;
-  }
-
   &__left-section {
     display: flex;
     flex-direction: column;
+    padding-top: 3rem;
   }
 
   &__channel-name {
@@ -36,12 +34,57 @@
 
   &__time-stamp {
     @include bodyCopyMobile();
+    font-size: 3rem;
+    color: $primary-color-silver;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+  &__right-section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    padding-right: 25%;
   }
   &__views-container {
     display: flex;
+    align-content: center;
+    align-items: center;
   }
 
   &__likes-container {
     display: flex;
+    align-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  &__views-info {
+    @include bodyCopyMobile();
+    font-size: 3rem;
+    color: $primary-color-silver;
+  }
+
+  &__likes-info {
+    @include bodyCopyMobile();
+    font-size: 3rem;
+    color: $primary-color-silver;
+  }
+
+  &__likes-icon {
+    padding-right: 2rem;
+  }
+
+  &__view-icon {
+    padding-right: 2rem;
+  }
+
+  &__video-information-main-container {
+    padding-top: 3rem;
+  }
+
+  &__video-information {
+    @include bodyCopyMobile();
+    padding: 0 4rem;
   }
 }

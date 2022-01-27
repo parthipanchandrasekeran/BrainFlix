@@ -13,11 +13,10 @@ function VideoDetails(props) {
       <section className="video-details-container__details-container">
         <div className="video-details-container__left-section">
           <p className="video-details-container__channel-name">
+            By&nbsp;
             {props.details.channel}
           </p>
-          <p className="video-details-container__time-stamp">
-            {props.details.timestamp}
-          </p>
+          <p className="video-details-container__time-stamp">{props.date}</p>
         </div>
         <div className="video-details-container__right-section">
           <div className="video-details-container__views-container">
