@@ -3,6 +3,7 @@ import "../styles/VideoDetails.scss";
 import "../styles/hero-container.scss";
 import VideoDetails from "./VideoDetails/VideoDetails";
 import HeroVideo from "./HeroVideo";
+import dateFormatter from "./VideoDetails/dateFormatter";
 
 export default class VideoInfo extends Component {
   render() {
@@ -319,25 +320,9 @@ export default class VideoInfo extends Component {
       },
     ];
 
-    function dateFormatter() {
-      const dateFormated = videoTotalData[0].timestamp;
-      const commentDate = new Date(dateFormated);
-      //const dateActual = commentDate.toDateString();
+    const dateFormated = videoTotalData[0].timestamp;
 
-      let month = commentDate.getMonth() + 1;
-      let day = commentDate.getDate();
-      const year = commentDate.getFullYear();
-
-      if (month / 10 < 1) {
-        month = "0" + month;
-      }
-
-      if (day / 10 < 1) {
-        day = "0" + day;
-      }
-      const actualDate = month + "/" + day + "/" + year;
-      return actualDate;
-    }
+    const date = dateFormatter(dateFormated);
 
     return (
       <>
@@ -345,7 +330,7 @@ export default class VideoInfo extends Component {
         <VideoDetails
           details={videoTotalData[0]}
           key={videoTotalData[0].id}
-          date={dateFormatter()}
+          date={date}
         />
       </>
     );
