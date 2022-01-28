@@ -1,5 +1,3 @@
-import React from "react";
-
 function dateFormatter(dateFormated) {
   const commentDate = new Date(dateFormated);
 

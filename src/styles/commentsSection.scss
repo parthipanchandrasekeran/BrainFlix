@@ -1,0 +1,122 @@
+@import "./partials/colors";
+@import "./partials/global";
+
+.comments-container {
+  &__comments-count {
+    @include subHeaderMobile();
+    padding: 4rem;
+  }
+}
+
+.insert-comment-container {
+  @include padding();
+
+  @include desktop() {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  &__header {
+    @include headerTitle();
+    font-size: 4rem;
+    @include desktop() {
+      padding-left: 1rem;
+    }
+  }
+
+  &__image-container {
+    padding-top: 8rem;
+  }
+
+  &__side-image {
+    border-radius: 50%;
+    height: 36px;
+    max-width: 36px;
+    flex-grow: 0;
+
+    @include tablet() {
+      height: 48px;
+      max-width: 48px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px $secondary-color-mercury;
+    @include tablet() {
+      margin: 0 12rem;
+    }
+
+    @include desktop() {
+      margin: 0 23rem;
+    }
+  }
+
+  &__form-class {
+    flex-grow: 1;
+    @include padding();
+    padding-right: 0;
+  }
+
+  &__form-name-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form-comment-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__form-name-label {
+    @include bodyCopyText();
+    padding-bottom: 2rem;
+
+    color: $primary-color-silver;
+  }
+
+  &__form-name-input {
+    min-height: 36px;
+    padding-left: 1rem;
+    @include bodyCopyText();
+    font-family: "averiNextRegular";
+    border: solid 1px $secondary-color-mercury;
+
+    &::placeholder {
+      color: $primary-color-black;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border: solid 1px $secondary-color-dark-black;
+    }
+
+    @include tablet() {
+      min-height: 50px;
+    }
+  }
+
+  &__form-comment-label {
+    @include bodyCopyText();
+    padding: 2rem 0;
+    color: $primary-color-silver;
+  }
+
+  &__form-button {
+    @include buttonMobile();
+
+    @include tablet() {
+      width: 30%;
+    }
+  }
+
+  &__button-container {
+    @include tablet() {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

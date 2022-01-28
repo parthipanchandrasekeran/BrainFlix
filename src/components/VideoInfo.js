@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import "../styles/VideoDetails.scss";
 import "../styles/hero-container.scss";
+import "../styles/commentsSection.scss";
 import VideoDetails from "./VideoDetails/VideoDetails";
 import HeroVideo from "./HeroVideo";
 import dateFormatter from "./VideoDetails/dateFormatter";
+import Comments from "./Comments/Comments";
+import commentCounter from "./Comments/commentCounter";
 
 export default class VideoInfo extends Component {
   render() {
@@ -324,6 +327,8 @@ export default class VideoInfo extends Component {
 
     const date = dateFormatter(dateFormated);
 
+    const commentCount = commentCounter(videoTotalData[0].comments);
+
     return (
       <>
         <HeroVideo mainVideo={videoTotalData[0].image} />
@@ -332,6 +337,7 @@ export default class VideoInfo extends Component {
           key={videoTotalData[0].id}
           date={date}
         />
+        <Comments count={commentCount} />
       </>
     );
   }
