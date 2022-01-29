@@ -7,13 +7,14 @@ function VideoList({
   clickedVideoObject,
   clickHandler,
   videoObj,
+  index,
 }) {
   return (
     <div className="video-list-main">
       <div className="video-list-main__video-main-container">
         <img
           onClick={() => {
-            clickHandler(clickedVideoObject, videoObj);
+            clickHandler(clickedVideoObject, videoObj, index);
           }}
           className="video-list-main__side-video"
           src={image}

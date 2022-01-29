@@ -329,15 +329,15 @@ export default class VideoInfo extends Component {
     ],
   };
 
-  clickHandler = (videoObj) => {
-    /* console.log(clickedVideoObject);
-    console.log(videoObj);
-    const videolistObjTemp = [clickedVideoObject, videoObj];
-    console.log(videolistObjTemp);
-    //const tempArray = [this.state.videoTotalData];
-    //console.log(this.state.videoTotalData);*/
+  clickHandler = (clickedVideoObject, clickedIndex) => {
+    const tempArray = this.state.videoTotalData;
+    const removedArray = [];
+    removedArray.push(this.state.videoTotalData[0]);
+    tempArray.splice(clickedIndex, 1, removedArray[0]);
+    tempArray.unshift(clickedVideoObject);
+    console.log(tempArray);
     this.setState({
-      videoTotalData: [videoObj, ...this.state.videoTotalData],
+      videoTotalData: tempArray,
     });
   };
 
@@ -347,6 +347,7 @@ export default class VideoInfo extends Component {
         return (
           <CommentDetails
             key={comments.timestamp + comments.name + index}
+            s
             name={comments.name}
             comment={comments.comment}
             timestamp={dateFormatter(comments.timestamp)}
@@ -364,6 +365,7 @@ export default class VideoInfo extends Component {
             title={comments.title}
             channel={comments.channel}
             clickedVideoObject={comments}
+            clickedIndex={index}
             videoObj={this.state.videoTotalData}
             clickHandler={this.clickHandler}
           />
