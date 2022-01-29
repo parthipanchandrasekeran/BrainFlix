@@ -329,6 +329,18 @@ export default class VideoInfo extends Component {
     ],
   };
 
+  clickHandler = (videoObj) => {
+    /* console.log(clickedVideoObject);
+    console.log(videoObj);
+    const videolistObjTemp = [clickedVideoObject, videoObj];
+    console.log(videolistObjTemp);
+    //const tempArray = [this.state.videoTotalData];
+    //console.log(this.state.videoTotalData);*/
+    this.setState({
+      videoTotalData: [videoObj, ...this.state.videoTotalData],
+    });
+  };
+
   render() {
     const commentAdderList = this.state.videoTotalData[0].comments.map(
       (comments, index) => {
@@ -351,6 +363,9 @@ export default class VideoInfo extends Component {
             image={comments.image}
             title={comments.title}
             channel={comments.channel}
+            clickedVideoObject={comments}
+            videoObj={this.state.videoTotalData}
+            clickHandler={this.clickHandler}
           />
         );
       }
