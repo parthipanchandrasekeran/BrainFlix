@@ -7,10 +7,11 @@ import HeroVideo from "./HeroVideo";
 import dateFormatter from "./VideoDetails/dateFormatter";
 import Comments from "./Comments/Comments";
 import commentCounter from "./Comments/commentCounter";
+import CommentDetails from "./Comments/CommentDetails";
 
 export default class VideoInfo extends Component {
-  render() {
-    const videoTotalData = [
+  state = {
+    videoTotalData: [
       {
         title: "BMX Rampage: 2021 Highlights",
         channel: "Red Cow",
@@ -321,17 +322,21 @@ export default class VideoInfo extends Component {
         ],
         id: "76ca28c0-7dea-4553-887f-8e5129a80fc3",
       },
-    ];
-
+    ],
+  };
+  render() {
     return (
       <>
-        <HeroVideo mainVideo={videoTotalData[0].image} />
+        <HeroVideo mainVideo={this.state.videoTotalData[0].image} />
         <VideoDetails
-          details={videoTotalData[0]}
-          key={videoTotalData[0].id}
-          date={dateFormatter(videoTotalData[0].timestamp)}
+          details={this.state.videoTotalData[0]}
+          key={this.state.videoTotalData[0].id}
+          date={dateFormatter(this.state.videoTotalData[0].timestamp)}
         />
-        <Comments count={commentCounter(videoTotalData[0].comments)} />
+        <Comments
+          count={commentCounter(this.state.videoTotalData[0].comments)}
+        />
+        <CommentDetails />
       </>
     );
   }
