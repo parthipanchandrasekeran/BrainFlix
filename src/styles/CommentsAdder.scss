@@ -1,0 +1,43 @@
+@import "./partials/colors";
+@import "./partials/global";
+
+.comments-details-container {
+  display: flex;
+  margin: 0 4rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid $secondary-color-mercury;
+  margin-bottom: 3rem;
+
+  &__image {
+    border-radius: 50%;
+    height: 36px;
+    min-width: 36px;
+    margin-right: 2rem;
+
+    background-color: $secondary-color-mercury;
+  }
+
+  &__header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
+
+  &__right-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    @include subHeaderMobile();
+  }
+  &__date {
+    @include bodyCopyMobile();
+    color: $primary-color-silver;
+  }
+  &__comments-details {
+    padding-top: 2rem;
+    @include bodyCopyMobile();
+  }
+}

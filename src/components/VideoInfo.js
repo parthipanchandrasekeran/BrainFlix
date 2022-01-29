@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/VideoDetails.scss";
 import "../styles/hero-container.scss";
 import "../styles/commentsSection.scss";
+import "../styles/CommentsAdder.scss";
 import VideoDetails from "./VideoDetails/VideoDetails";
 import HeroVideo from "./HeroVideo";
 import dateFormatter from "./VideoDetails/dateFormatter";
@@ -326,15 +327,15 @@ export default class VideoInfo extends Component {
   };
 
   render() {
-    console.log(this.state.videoTotalData[0].comments[0].name);
+    console.log(this.state.videoTotalData[0].comments[0].timestamp);
     const commentAdderList = this.state.videoTotalData[0].comments.map(
       (comments, index) => {
         return (
           <CommentDetails
-            key={comments.timeStamp + comments.name}
+            key={comments.timestamp + comments.name}
             name={comments.name}
             comment={comments.comment}
-            timeStamp={comments.timeStamp}
+            timestamp={dateFormatter(comments.timestamp)}
           />
         );
       }

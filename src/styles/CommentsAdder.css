@@ -1,0 +1,59 @@
+@font-face {
+  font-family: averiNextBold;
+  src: url(../../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: averiNextRegular;
+  src: url(../../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 4px;
+  font-family: "averiNextBold";
+  box-sizing: border-box;
+}
+
+.comments-details-container {
+  display: flex;
+  margin: 0 4rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 3rem;
+}
+.comments-details-container__image {
+  border-radius: 50%;
+  height: 36px;
+  min-width: 36px;
+  margin-right: 2rem;
+  background-color: #e1e1e1;
+}
+.comments-details-container__header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.comments-details-container__right-main {
+  display: flex;
+  flex-direction: column;
+}
+.comments-details-container__name {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextBold;
+}
+.comments-details-container__date {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextRegular;
+  color: #afafaf;
+}
+.comments-details-container__comments-details {
+  padding-top: 2rem;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextRegular;
+}/*# sourceMappingURL=CommentsAdder.css.map */

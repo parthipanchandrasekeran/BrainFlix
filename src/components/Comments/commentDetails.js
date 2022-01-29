@@ -7,10 +7,10 @@ export default function CommentDetails({ name, comment, timestamp }) {
       <div className="comments-details-container__right-main">
         <div className="comments-details-container__header-container">
           <p className="comments-details-container__name">{name}</p>
-          <p className="comments-details-container__date">{comment}</p>
+          <p className="comments-details-container__date">{timestamp}</p>
         </div>
         <p className="comments-details-container__comments-details">
-          {timestamp}
+          {comment}
         </p>
       </div>
     </div>
