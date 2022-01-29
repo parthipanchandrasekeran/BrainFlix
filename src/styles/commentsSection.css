@@ -21,10 +21,12 @@
   line-height: 18px;
   font-family: averiNextBold;
   padding: 4rem;
+  padding-bottom: 0;
 }
 
-.insert-comment-container {
-  padding: 3rem 2rem 2rem 2rem;
+.insert-comment-container__main {
+  margin: 4rem;
+  border-bottom: solid 1px #e1e1e1;
 }
 @media (min-width: 1280px) {
   .insert-comment-container {
@@ -45,7 +47,7 @@
   }
 }
 .insert-comment-container__image-container {
-  padding-top: 8rem;
+  padding-top: 12rem;
 }
 .insert-comment-container__side-image {
   border-radius: 50%;
@@ -79,73 +81,46 @@
   padding: 3rem 2rem 2rem 2rem;
   padding-right: 0;
 }
-.insert-comment-container__form-name-container {
-  display: flex;
-  flex-direction: column;
-}
 .insert-comment-container__form-comment-container {
   display: flex;
   flex-direction: column;
 }
-.insert-comment-container__form-name-label {
-  font-size: 2rem;
-  line-height: 22px;
-  font-weight: 400;
-  text-transform: capitalize;
-  padding-bottom: 2rem;
-  color: #afafaf;
-}
-.insert-comment-container__form-name-input {
-  min-height: 36px;
-  padding-left: 1rem;
-  font-size: 2rem;
-  line-height: 22px;
-  font-weight: 400;
-  text-transform: capitalize;
-  font-family: "averiNextRegular";
-  border: solid 1px #e1e1e1;
-}
-.insert-comment-container__form-name-input::-moz-placeholder {
+.insert-comment-container__form-comment-input {
+  height: 25rem;
+  resize: none;
+  margin-bottom: 3rem;
+  border: 1px solid #e1e1e1;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextRegular;
+  padding: 2rem;
   color: #323232;
+  border-radius: 1rem;
 }
-.insert-comment-container__form-name-input:-ms-input-placeholder {
+.insert-comment-container__form-comment-input:focus {
   color: #323232;
-}
-.insert-comment-container__form-name-input::placeholder {
-  color: #323232;
-}
-.insert-comment-container__form-name-input:focus {
-  outline: none;
-}
-.insert-comment-container__form-name-input:focus-visible {
-  border: solid 1px #000000;
-}
-@media (min-width: 769px) {
-  .insert-comment-container__form-name-input {
-    min-height: 50px;
-  }
 }
 .insert-comment-container__form-comment-label {
-  font-size: 2rem;
-  line-height: 22px;
-  font-weight: 400;
-  text-transform: capitalize;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextBold;
   padding: 2rem 0;
   color: #afafaf;
 }
 .insert-comment-container__form-button {
-  margin: 2rem 0;
   height: 10rem;
   width: 100%;
-  background-color: #323232;
-  color: #ffffff;
   border-radius: 1rem;
-  font-size: 3rem;
-  line-height: 4rem;
-  font-weight: 700;
-  text-transform: capitalize;
-  border: 0px;
-  cursor: pointer;
+  border: 1px solid;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextBold;
+  color: #ffffff;
+  background: url("../assets/Icons/add_comment.svg"), #0095ff;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 1rem 2.5rem;
+  margin-bottom: 3rem;
 }
 @media (min-width: 769px) {
   .insert-comment-container__form-button {

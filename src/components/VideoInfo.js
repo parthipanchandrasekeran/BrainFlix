@@ -323,21 +323,15 @@ export default class VideoInfo extends Component {
       },
     ];
 
-    const dateFormated = videoTotalData[0].timestamp;
-
-    const date = dateFormatter(dateFormated);
-
-    const commentCount = commentCounter(videoTotalData[0].comments);
-
     return (
       <>
         <HeroVideo mainVideo={videoTotalData[0].image} />
         <VideoDetails
           details={videoTotalData[0]}
           key={videoTotalData[0].id}
-          date={date}
+          date={dateFormatter(videoTotalData[0].timestamp)}
         />
-        <Comments count={commentCount} />
+        <Comments count={commentCounter(videoTotalData[0].comments)} />
       </>
     );
   }

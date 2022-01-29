@@ -8,9 +8,6 @@ function Comments(props) {
         {props.count} Comments
       </p>
       <div className="insert-comment-container">
-        <h1 className="insert-comment-container__header">
-          Join the conversation
-        </h1>
         <div className="insert-comment-container__main">
           <div className="insert-comment-container__image-container">
             <img
@@ -23,27 +20,12 @@ function Comments(props) {
             id="insert-comment-container__form"
             className="insert-comment-container__form-class"
           >
-            <div className="insert-comment-container__form-name-container">
-              <label
-                className="insert-comment-container__form-name-label"
-                htmlFor="name"
-              >
-                NAME
-              </label>
-              <input
-                type="text"
-                className="insert-comment-container__form-name-input"
-                id="name"
-                name="formname"
-                placeholder="Enter your Name"
-              />
-            </div>
             <div className="insert-comment-container__form-comment-container">
               <label
                 className="insert-comment-container__form-comment-label"
                 htmlFor="comment"
               >
-                COMMENT
+                JOIN THE CONVERSATION
               </label>
               <textarea
                 id="comment"
