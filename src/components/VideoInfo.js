@@ -324,7 +324,21 @@ export default class VideoInfo extends Component {
       },
     ],
   };
+
   render() {
+    console.log(this.state.videoTotalData[0].comments[0].name);
+    const commentAdderList = this.state.videoTotalData[0].comments.map(
+      (comments, index) => {
+        return (
+          <CommentDetails
+            key={comments.timeStamp + comments.name}
+            name={comments.name}
+            comment={comments.comment}
+            timeStamp={comments.timeStamp}
+          />
+        );
+      }
+    );
     return (
       <>
         <HeroVideo mainVideo={this.state.videoTotalData[0].image} />
@@ -336,7 +350,8 @@ export default class VideoInfo extends Component {
         <Comments
           count={commentCounter(this.state.videoTotalData[0].comments)}
         />
-        <CommentDetails />
+
+        <div>{commentAdderList}</div>
       </>
     );
   }
