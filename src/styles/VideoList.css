@@ -1,0 +1,51 @@
+@font-face {
+  font-family: averiNextBold;
+  src: url(../../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: averiNextRegular;
+  src: url(../../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 4px;
+  font-family: "averiNextBold";
+  box-sizing: border-box;
+}
+
+.video-list-main__video-main-container {
+  display: flex;
+  padding: 4rem;
+  justify-content: flex-start;
+}
+.video-list-main__header {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextBold;
+  color: #afafaf;
+}
+.video-list-main__video-title {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextBold;
+}
+.video-list-main__video-channel {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: averiNextRegular;
+  padding-top: 3rem;
+}
+.video-list-main__side-video {
+  height: 17rem;
+  width: 25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+  margin-right: 3rem;
+}
+.video-list-main__header {
+  padding: 0 4rem;
+}/*# sourceMappingURL=VideoList.css.map */

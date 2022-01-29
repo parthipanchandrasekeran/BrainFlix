@@ -3,12 +3,15 @@ import "../styles/VideoDetails.scss";
 import "../styles/hero-container.scss";
 import "../styles/commentsSection.scss";
 import "../styles/CommentsAdder.scss";
+import "../styles/VideoList.scss";
 import VideoDetails from "./VideoDetails/VideoDetails";
 import HeroVideo from "./HeroVideo";
 import dateFormatter from "./VideoDetails/dateFormatter";
 import Comments from "./Comments/Comments";
 import commentCounter from "./Comments/commentCounter";
 import CommentDetails from "./Comments/CommentDetails";
+import VideoList from "./VideoList/VideoList";
+import VideoListHeader from "./VideoList/VideoListHeader";
 
 export default class VideoInfo extends Component {
   state = {
@@ -327,12 +330,11 @@ export default class VideoInfo extends Component {
   };
 
   render() {
-    console.log(this.state.videoTotalData[0].comments[0].timestamp);
     const commentAdderList = this.state.videoTotalData[0].comments.map(
       (comments, index) => {
         return (
           <CommentDetails
-            key={comments.timestamp + comments.name}
+            key={comments.timestamp + comments.name + index}
             name={comments.name}
             comment={comments.comment}
             timestamp={dateFormatter(comments.timestamp)}
@@ -340,6 +342,20 @@ export default class VideoInfo extends Component {
         );
       }
     );
+
+    const videoAdderList = this.state.videoTotalData.map((comments, index) => {
+      if (index > 0) {
+        return (
+          <VideoList
+            key={comments.timestamp + index}
+            image={comments.image}
+            title={comments.title}
+            channel={comments.channel}
+          />
+        );
+      }
+    });
+
     return (
       <>
         <HeroVideo mainVideo={this.state.videoTotalData[0].image} />
@@ -353,6 +369,8 @@ export default class VideoInfo extends Component {
         />
 
         <div>{commentAdderList}</div>
+        <VideoListHeader />
+        <div>{videoAdderList}</div>
       </>
     );
   }

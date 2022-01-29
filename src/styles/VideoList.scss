@@ -1,0 +1,32 @@
+@import "./partials/colors";
+@import "./partials/global";
+
+.video-list-main {
+  &__video-main-container {
+    display: flex;
+    padding: 4rem;
+    justify-content: flex-start;
+  }
+  &__header {
+    @include subHeaderMobile();
+    color: $primary-color-silver;
+  }
+  &__video-title {
+    @include subHeaderMobile();
+  }
+  &__video-channel {
+    @include bodyCopyMobile();
+    padding-top: 3rem;
+  }
+
+  &__side-video {
+    height: 17rem;
+    width: 25rem;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 3rem;
+  }
+  &__header {
+    padding: 0 4rem;
+  }
+}

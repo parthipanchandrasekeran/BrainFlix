@@ -19,7 +19,7 @@
 .comments-details-container {
   display: flex;
   margin: 0 4rem;
-  padding: 3rem 0;
+  padding-bottom: 3rem;
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 3rem;
 }
