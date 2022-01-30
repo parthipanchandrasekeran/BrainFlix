@@ -2,7 +2,15 @@
 @import "./partials/global";
 
 .header {
-  padding: 0 4rem;
+  padding: 0 6rem;
+
+  @include tablet() {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
   &__logo-container {
     display: flex;
     align-items: center;
@@ -11,6 +19,11 @@
     text-decoration: none;
     padding-top: 4rem;
     padding-bottom: 4rem;
+
+    @include tablet() {
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
   }
   &__logo {
     max-width: 30rem;
@@ -22,6 +35,10 @@
     width: 100%;
     height: 100%;
     padding: 3rem;
+
+    @include tablet() {
+      display: none;
+    }
   }
   &__search-box {
     background: url("../assets/Icons/search.svg");
@@ -36,9 +53,28 @@
     min-height: 9rem;
     min-width: 240px;
 
+    &--tablet {
+      background: url("../assets/Icons/search.svg");
+      background-repeat: no-repeat;
+      background-position: 2rem 2rem;
+      padding: 1rem 1rem 1rem 8rem;
+      font-family: averiNextRegular;
+      @include subHeaderMobile();
+      border: 1px solid $secondary-color-mercury;
+      border-radius: 1rem;
+      width: 100%;
+      min-height: 9rem;
+      min-width: 240px;
+    }
+
     &-container {
       width: 100%;
       padding-right: 2rem;
+
+      &--tablet {
+        width: 100%;
+        padding-right: 2rem;
+      }
     }
   }
 
@@ -55,6 +91,14 @@
     padding: 3rem;
     padding-top: 1rem;
     padding-bottom: 4rem;
+    @include tablet() {
+      display: none;
+    }
+
+    &--tablet {
+      min-width: 150px;
+      margin: 0 8rem;
+    }
   }
   &__upload-button {
     height: 10rem;
@@ -67,5 +111,35 @@
     background-repeat: no-repeat;
     background-size: 18px;
     background-position: 1rem 2.5rem;
+
+    &--tablet {
+      height: 10rem;
+      width: 100%;
+      border-radius: 1rem;
+      border: 1px solid;
+      @include subHeaderMobile();
+      color: $primary-color-white;
+      background: url("../assets/Icons/upload.svg"), $primary-color-blue;
+      background-repeat: no-repeat;
+      background-size: 18px;
+      background-position: 1rem 2.5rem;
+    }
+  }
+  &__right-main-container--tablet {
+    display: none;
+
+    @include tablet() {
+      display: flex;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  &__icon-container--tablet {
+  }
+  &__icon--tablet {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
   }
 }

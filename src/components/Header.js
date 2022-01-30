@@ -13,6 +13,26 @@ export default class Header extends Component {
           </a>
         </div>
 
+        <div className="header__right-main-container--tablet">
+          <div className="header__search-box-container--tablet">
+            <input
+              className="header__search-box--tablet"
+              type="text"
+              placeholder="Search"
+            />
+          </div>
+          <div className="header__upload-container--tablet">
+            <button className="header__upload-button--tablet">Upload</button>
+          </div>
+          <div className="header__icon-container--tablet">
+            <img
+              className="header__icon--tablet"
+              src={headerIcon}
+              alt="headerIcon"
+            />
+          </div>
+        </div>
+
         <div className="header__search-container">
           <div className="header__search-box-container">
             <input
