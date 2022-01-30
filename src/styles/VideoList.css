@@ -23,7 +23,8 @@
 }
 @media (min-width: 769px) {
   .video-list-main__video-main-container {
-    padding: 6rem;
+    padding-bottom: 6rem;
+    padding-top: 0;
   }
 }
 .video-list-main__header {
@@ -52,12 +53,16 @@
   margin-right: 3rem;
   cursor: pointer;
 }
+@media (min-width: 769px) {
+  .video-list-main__video-details-main {
+    width: 25%;
+  }
+}
 .video-list-main__header {
   padding: 0 4rem;
 }
 @media (min-width: 769px) {
   .video-list-main__header {
-    padding: 0 6rem;
-    padding-top: 6rem;
+    padding: 6rem;
   }
 }/*# sourceMappingURL=VideoList.css.map */

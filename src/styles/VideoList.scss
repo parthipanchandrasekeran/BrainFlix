@@ -7,7 +7,8 @@
     padding: 4rem;
     justify-content: flex-start;
     @include tablet() {
-      padding: 6rem;
+      padding-bottom: 6rem;
+      padding-top: 0;
     }
   }
   &__header {
@@ -30,11 +31,16 @@
     margin-right: 3rem;
     cursor: pointer;
   }
+
+  &__video-details-main {
+    @include tablet() {
+      width: 25%;
+    }
+  }
   &__header {
     padding: 0 4rem;
     @include tablet() {
-      padding: 0 6rem;
-      padding-top: 6rem;
+      padding: 6rem;
     }
   }
 }
