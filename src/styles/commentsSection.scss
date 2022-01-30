@@ -11,6 +11,10 @@
       padding: 6rem;
 
       padding-bottom: 0;
+
+      @include desktop() {
+        margin: 6rem 63px;
+      }
     }
   }
 }
@@ -21,8 +25,7 @@
     border-bottom: solid 1px $secondary-color-mercury;
   }
   @include desktop() {
-    padding-left: 8rem;
-    padding-right: 8rem;
+    margin: 0;
   }
 
   &__header {
@@ -39,6 +42,9 @@
       padding-top: 8rem;
       padding-bottom: 4rem;
       padding-left: 6rem;
+      @include desktop() {
+        padding-left: 0;
+      }
     }
   }
 

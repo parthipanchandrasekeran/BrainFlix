@@ -29,6 +29,11 @@
     margin: 0 9rem;
   }
 }
+@media (min-width: 769px) and (min-width: 1280px) {
+  .header {
+    margin: 0 63px;
+  }
+}
 .header__logo-container {
   display: flex;
   align-items: center;

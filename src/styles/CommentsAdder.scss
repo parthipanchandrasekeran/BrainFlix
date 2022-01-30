@@ -11,6 +11,9 @@
   @include tablet() {
     padding: 6rem 0;
     margin: 0 9rem;
+    @include desktop() {
+      margin: 0 63px;
+    }
   }
   &__image {
     border-radius: 50%;

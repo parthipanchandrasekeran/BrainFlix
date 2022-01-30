@@ -29,6 +29,11 @@
     margin: 0 9rem;
   }
 }
+@media (min-width: 769px) and (min-width: 1280px) {
+  .comments-details-container {
+    margin: 0 63px;
+  }
+}
 .comments-details-container__image {
   border-radius: 50%;
   height: 36px;

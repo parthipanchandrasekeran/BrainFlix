@@ -11,6 +11,9 @@
     align-items: center;
     text-align: center;
     margin: 0 9rem;
+    @include desktop() {
+      margin: 0 63px;
+    }
   }
   &__logo-container {
     display: flex;

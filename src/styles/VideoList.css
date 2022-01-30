@@ -31,6 +31,11 @@
     padding-top: 0;
   }
 }
+@media (min-width: 769px) and (min-width: 1280px) {
+  .video-list-main__video-main-container {
+    margin: 0 63px;
+  }
+}
 .video-list-main__header {
   font-size: 13px;
   line-height: 18px;
@@ -72,5 +77,10 @@
   .video-list-main__header {
     margin: 6rem 9rem;
     padding: 0 6rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 1280px) {
+  .video-list-main__header {
+    margin: 6rem 63px;
   }
 }/*# sourceMappingURL=VideoList.css.map */

@@ -14,6 +14,9 @@
       padding-right: 6rem;
       padding-bottom: 6rem;
       padding-top: 0;
+      @include desktop() {
+        margin: 0 63px;
+      }
     }
   }
   &__header {
@@ -50,6 +53,9 @@
     @include tablet() {
       margin: 6rem 9rem;
       padding: 0 6rem;
+      @include desktop() {
+        margin: 6rem 63px;
+      }
     }
   }
 }

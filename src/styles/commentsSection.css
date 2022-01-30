@@ -30,6 +30,11 @@
     padding-bottom: 0;
   }
 }
+@media (min-width: 769px) and (min-width: 1280px) {
+  .comments-container__comments-count {
+    margin: 6rem 63px;
+  }
+}
 
 .insert-comment-container__main {
   margin: 4rem;
@@ -37,8 +42,7 @@
 }
 @media (min-width: 1280px) {
   .insert-comment-container {
-    padding-left: 8rem;
-    padding-right: 8rem;
+    margin: 0;
   }
 }
 .insert-comment-container__header {
@@ -61,6 +65,11 @@
     padding-top: 8rem;
     padding-bottom: 4rem;
     padding-left: 6rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 1280px) {
+  .insert-comment-container__image-container {
+    padding-left: 0;
   }
 }
 .insert-comment-container__side-image {
