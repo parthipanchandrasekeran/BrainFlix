@@ -6,6 +6,10 @@
     @include subHeaderMobile();
     padding: 4rem;
     padding-bottom: 0;
+    @include tablet() {
+      padding: 6rem;
+      padding-bottom: 0;
+    }
   }
 }
 
@@ -29,6 +33,10 @@
 
   &__image-container {
     padding-top: 12rem;
+    @include tablet() {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+    }
   }
 
   &__side-image {
@@ -38,8 +46,8 @@
     flex-grow: 0;
 
     @include tablet() {
-      height: 48px;
-      max-width: 48px;
+      max-width: 10rem;
+      min-height: 10rem;
     }
   }
 
@@ -48,7 +56,7 @@
     justify-content: space-between;
     border-bottom: solid 1px $secondary-color-mercury;
     @include tablet() {
-      margin: 0 12rem;
+      margin: 0 6rem;
     }
 
     @include desktop() {
@@ -60,11 +68,17 @@
     flex-grow: 1;
     @include padding();
     padding-right: 0;
+    @include tablet() {
+      padding: 0;
+    }
   }
 
   &__form-comment-container {
     display: flex;
     flex-direction: column;
+    @include tablet() {
+      margin-left: 6rem;
+    }
   }
 
   &__form-comment-input {
@@ -76,6 +90,10 @@
     padding: 2rem;
     color: $primary-color-black;
     border-radius: 1rem;
+    @include tablet() {
+      height: 10rem;
+      margin-bottom: 4rem;
+    }
 
     &:focus {
       color: $primary-color-black;
@@ -101,15 +119,38 @@
     background-position: 1rem 2.5rem;
     margin-bottom: 3rem;
 
-    @include tablet() {
-      width: 30%;
+    @include tablet {
+      display: none;
+    }
+
+    &--tablet {
+      height: 10rem;
+      min-width: 150px;
+      border-radius: 1rem;
+      border: 1px solid;
+      @include subHeaderMobile();
+      color: $primary-color-white;
+      background: url("../assets/Icons/add_comment.svg"), $primary-color-blue;
+      background-repeat: no-repeat;
+      background-size: 18px;
+      background-position: 1rem 2.5rem;
+      margin: 0 8rem;
+      @include tablet() {
+        margin: 0;
+        margin-left: 6rem;
+      }
     }
   }
 
   &__button-container {
-    @include tablet() {
-      display: flex;
-      justify-content: flex-end;
+    &--tablet {
+      display: none;
+      @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        padding-bottom: 4rem;
+      }
     }
   }
 }

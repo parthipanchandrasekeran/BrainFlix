@@ -25,6 +25,12 @@
   align-items: center;
   align-content: center;
 }
+@media (min-width: 769px) {
+  .video-details-container__details-container {
+    margin: 0 6rem;
+    padding-bottom: 3rem;
+  }
+}
 .video-details-container__heading-container {
   border-bottom: 1px solid #e1e1e1;
   margin-left: 4rem;
@@ -34,6 +40,7 @@
 @media (min-width: 769px) {
   .video-details-container__heading-container {
     margin: 0 6rem;
+    padding-bottom: 6rem;
     border: none;
   }
 }
@@ -43,10 +50,21 @@
   font-family: averiNextBold;
   padding-bottom: 4rem;
 }
+@media (min-width: 769px) {
+  .video-details-container__heading {
+    padding-bottom: 0;
+  }
+}
 .video-details-container__left-section {
   display: flex;
   flex-direction: column;
   padding-top: 3rem;
+}
+@media (min-width: 769px) {
+  .video-details-container__left-section {
+    flex-direction: row;
+    padding: 0;
+  }
 }
 .video-details-container__channel-name {
   font-size: 3rem;
@@ -62,11 +80,27 @@
   padding-top: 4rem;
   padding-bottom: 3rem;
 }
+@media (min-width: 769px) {
+  .video-details-container__time-stamp {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 6rem;
+  }
+}
 .video-details-container__right-section {
   display: flex;
   flex-direction: column;
   padding-top: 3rem;
   padding-right: 25%;
+}
+@media (min-width: 769px) {
+  .video-details-container__right-section {
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
 }
 .video-details-container__views-container {
   display: flex;
@@ -79,6 +113,12 @@
   align-items: center;
   padding-top: 4rem;
   padding-bottom: 3rem;
+}
+@media (min-width: 769px) {
+  .video-details-container__likes-container {
+    margin-left: 6rem;
+    padding: 0;
+  }
 }
 .video-details-container__views-info {
   font-size: 13px;
@@ -108,4 +148,9 @@
   line-height: 18px;
   font-family: averiNextRegular;
   padding: 0 4rem;
+}
+@media (min-width: 769px) {
+  .video-details-container__video-information {
+    padding: 0 6rem;
+  }
 }/*# sourceMappingURL=VideoDetails.css.map */

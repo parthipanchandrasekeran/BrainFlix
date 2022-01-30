@@ -43,6 +43,14 @@ function Comments(props) {
               </div>
             </div>
           </form>
+          <div className="insert-comment-container__button-container--tablet">
+            <button
+              className="insert-comment-container__form-button--tablet"
+              type="submit"
+            >
+              COMMENT
+            </button>
+          </div>
         </div>
       </div>
     </div>

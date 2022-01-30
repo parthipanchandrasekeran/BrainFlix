@@ -19,6 +19,11 @@
     margin-right: 2rem;
 
     background-color: $secondary-color-mercury;
+    @include tablet() {
+      min-height: 40px;
+      min-width: 40px;
+      margin: 0;
+    }
   }
 
   &__header-container {
@@ -31,6 +36,9 @@
   &__right-main {
     display: flex;
     flex-direction: column;
+    @include tablet() {
+      padding-left: 6rem;
+    }
   }
 
   &__name {

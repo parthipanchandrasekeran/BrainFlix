@@ -10,6 +10,11 @@
     margin-right: 4rem;
     align-items: center;
     align-content: center;
+
+    @include tablet() {
+      margin: 0 6rem;
+      padding-bottom: 3rem;
+    }
   }
   &__heading-container {
     border-bottom: 1px solid $secondary-color-mercury;
@@ -18,18 +23,27 @@
     padding-top: 6rem;
     @include tablet() {
       margin: 0 6rem;
+      padding-bottom: 6rem;
       border: none;
     }
   }
   &__heading {
     @include pageHeaderMobile();
     padding-bottom: 4rem;
+    @include tablet() {
+      padding-bottom: 0;
+    }
   }
 
   &__left-section {
     display: flex;
     flex-direction: column;
     padding-top: 3rem;
+
+    @include tablet() {
+      flex-direction: row;
+      padding: 0;
+    }
   }
 
   &__channel-name {
@@ -42,12 +56,26 @@
     color: $primary-color-silver;
     padding-top: 4rem;
     padding-bottom: 3rem;
+
+    @include tablet() {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-left: 6rem;
+    }
   }
   &__right-section {
     display: flex;
     flex-direction: column;
     padding-top: 3rem;
     padding-right: 25%;
+
+    @include tablet() {
+      flex-direction: row;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
   }
   &__views-container {
     display: flex;
@@ -61,6 +89,11 @@
     align-items: center;
     padding-top: 4rem;
     padding-bottom: 3rem;
+
+    @include tablet() {
+      margin-left: 6rem;
+      padding: 0;
+    }
   }
 
   &__views-info {
@@ -90,5 +123,8 @@
   &__video-information {
     @include bodyCopyMobile();
     padding: 0 4rem;
+    @include tablet() {
+      padding: 0 6rem;
+    }
   }
 }
