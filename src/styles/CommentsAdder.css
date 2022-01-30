@@ -23,6 +23,12 @@
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 3rem;
 }
+@media (min-width: 769px) {
+  .comments-details-container {
+    padding: 6rem 0;
+    margin: 0 6rem;
+  }
+}
 .comments-details-container__image {
   border-radius: 50%;
   height: 36px;

@@ -8,6 +8,10 @@
   border-bottom: 1px solid $secondary-color-mercury;
   margin-bottom: 3rem;
 
+  @include tablet() {
+    padding: 6rem 0;
+    margin: 0 6rem;
+  }
   &__image {
     border-radius: 50%;
     height: 36px;

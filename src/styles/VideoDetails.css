@@ -31,6 +31,12 @@
   margin-right: 4rem;
   padding-top: 6rem;
 }
+@media (min-width: 769px) {
+  .video-details-container__heading-container {
+    margin: 0 6rem;
+    border: none;
+  }
+}
 .video-details-container__heading {
   font-size: 6rem;
   line-height: 8rem;

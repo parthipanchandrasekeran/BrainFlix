@@ -16,6 +16,10 @@
     margin-left: 4rem;
     margin-right: 4rem;
     padding-top: 6rem;
+    @include tablet() {
+      margin: 0 6rem;
+      border: none;
+    }
   }
   &__heading {
     @include pageHeaderMobile();
