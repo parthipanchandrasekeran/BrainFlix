@@ -25,7 +25,7 @@
 }
 @media (min-width: 769px) {
   .comments-container__comments-count {
-    padding: 6rem;
+    padding: 6rem 9rem;
     padding-bottom: 0;
   }
 }
@@ -80,7 +80,7 @@
 }
 @media (min-width: 769px) {
   .insert-comment-container__main {
-    margin: 0 6rem;
+    margin: 0 9rem;
     margin-top: 6rem;
     padding-bottom: 2rem;
   }

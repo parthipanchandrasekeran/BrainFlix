@@ -7,7 +7,8 @@
     padding: 4rem;
     padding-bottom: 0;
     @include tablet() {
-      padding: 6rem;
+      padding: 6rem 9rem;
+
       padding-bottom: 0;
     }
   }
@@ -56,7 +57,7 @@
     justify-content: space-between;
     border-bottom: solid 1px $secondary-color-mercury;
     @include tablet() {
-      margin: 0 6rem;
+      margin: 0 9rem;
       margin-top: 6rem;
       padding-bottom: 2rem;
     }

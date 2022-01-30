@@ -12,7 +12,7 @@
     align-content: center;
 
     @include tablet() {
-      margin: 0 6rem;
+      margin: 0 9rem;
       padding-bottom: 3rem;
     }
   }
@@ -22,7 +22,7 @@
     margin-right: 4rem;
     padding-top: 6rem;
     @include tablet() {
-      margin: 0 6rem;
+      margin: 0 9rem;
       padding-bottom: 6rem;
       border: none;
     }
@@ -124,7 +124,7 @@
     @include bodyCopyMobile();
     padding: 0 4rem;
     @include tablet() {
-      padding: 0 6rem;
+      padding: 0 9rem;
     }
   }
 }

@@ -26,6 +26,7 @@
     align-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 9rem;
   }
 }
 .header__logo-container {
