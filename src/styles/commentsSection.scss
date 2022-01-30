@@ -57,6 +57,8 @@
     border-bottom: solid 1px $secondary-color-mercury;
     @include tablet() {
       margin: 0 6rem;
+      margin-top: 6rem;
+      padding-bottom: 2rem;
     }
 
     @include desktop() {

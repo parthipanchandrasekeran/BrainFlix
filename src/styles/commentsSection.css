@@ -81,6 +81,8 @@
 @media (min-width: 769px) {
   .insert-comment-container__main {
     margin: 0 6rem;
+    margin-top: 6rem;
+    padding-bottom: 2rem;
   }
 }
 @media (min-width: 1280px) {

@@ -21,6 +21,11 @@
   padding: 4rem;
   justify-content: flex-start;
 }
+@media (min-width: 769px) {
+  .video-list-main__video-main-container {
+    padding: 6rem;
+  }
+}
 .video-list-main__header {
   font-size: 13px;
   line-height: 18px;
@@ -49,4 +54,10 @@
 }
 .video-list-main__header {
   padding: 0 4rem;
+}
+@media (min-width: 769px) {
+  .video-list-main__header {
+    padding: 0 6rem;
+    padding-top: 6rem;
+  }
 }/*# sourceMappingURL=VideoList.css.map */
