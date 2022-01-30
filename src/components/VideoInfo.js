@@ -329,13 +329,16 @@ export default class VideoInfo extends Component {
     ],
   };
 
-  clickHandler = (clickedVideoObject, clickedIndex) => {
+  clickHandler = (clickedVideoObject, videoObj, clickedIndex) => {
     const tempArray = this.state.videoTotalData;
     const removedArray = [];
     removedArray.push(this.state.videoTotalData[0]);
-    tempArray.splice(clickedIndex, 1, removedArray[0]);
-    tempArray.unshift(clickedVideoObject);
-    console.log(tempArray);
+    removedArray.unshift(clickedVideoObject);
+    const dummy = removedArray[1];
+    tempArray.splice(clickedIndex, 1, dummy);
+
+    tempArray.splice(0, 1, clickedVideoObject);
+
     this.setState({
       videoTotalData: tempArray,
     });
