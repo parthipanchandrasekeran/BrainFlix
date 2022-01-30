@@ -23,7 +23,10 @@
 }
 @media (min-width: 769px) {
   .video-list-main__video-main-container {
-    padding: 9rem;
+    margin-left: 9rem;
+    margin-right: 9rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
     padding-bottom: 6rem;
     padding-top: 0;
   }
@@ -67,6 +70,7 @@
 }
 @media (min-width: 769px) {
   .video-list-main__header {
-    padding: 6rem 9rem;
+    margin: 6rem 9rem;
+    padding: 0 6rem;
   }
 }/*# sourceMappingURL=VideoList.css.map */

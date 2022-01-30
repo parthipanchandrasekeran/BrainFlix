@@ -7,7 +7,11 @@
     padding: 4rem;
     justify-content: flex-start;
     @include tablet() {
-      padding: 9rem;
+      margin-left: 9rem;
+      margin-right: 9rem;
+
+      padding-left: 6rem;
+      padding-right: 6rem;
       padding-bottom: 6rem;
       padding-top: 0;
     }
@@ -44,7 +48,8 @@
   &__header {
     padding: 0 4rem;
     @include tablet() {
-      padding: 6rem 9rem;
+      margin: 6rem 9rem;
+      padding: 0 6rem;
     }
   }
 }

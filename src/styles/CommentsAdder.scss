@@ -23,6 +23,7 @@
       min-height: 40px;
       min-width: 40px;
       margin: 0;
+      margin-left: 6rem;
     }
   }
 
@@ -38,6 +39,7 @@
     flex-direction: column;
     @include tablet() {
       padding-left: 6rem;
+      margin-right: 6rem;
     }
   }
 

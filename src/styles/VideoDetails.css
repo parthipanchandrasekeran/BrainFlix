@@ -28,7 +28,8 @@
 @media (min-width: 769px) {
   .video-details-container__details-container {
     margin: 0 9rem;
-    padding-bottom: 3rem;
+    padding: 0 6rem;
+    padding-bottom: 4rem;
   }
 }
 .video-details-container__heading-container {
@@ -40,7 +41,7 @@
 @media (min-width: 769px) {
   .video-details-container__heading-container {
     margin: 0 9rem;
-    padding-bottom: 6rem;
+    padding: 6rem;
     border: none;
   }
 }
@@ -151,6 +152,7 @@
 }
 @media (min-width: 769px) {
   .video-details-container__video-information {
-    padding: 0 9rem;
+    margin: 0 9rem;
+    padding: 0 6rem;
   }
 }/*# sourceMappingURL=VideoDetails.css.map */

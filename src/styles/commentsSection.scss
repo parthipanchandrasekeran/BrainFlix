@@ -7,7 +7,8 @@
     padding: 4rem;
     padding-bottom: 0;
     @include tablet() {
-      padding: 6rem 9rem;
+      margin: 6rem 9rem;
+      padding: 6rem;
 
       padding-bottom: 0;
     }
@@ -37,6 +38,7 @@
     @include tablet() {
       padding-top: 8rem;
       padding-bottom: 4rem;
+      padding-left: 6rem;
     }
   }
 
@@ -58,8 +60,6 @@
     border-bottom: solid 1px $secondary-color-mercury;
     @include tablet() {
       margin: 0 9rem;
-      margin-top: 6rem;
-      padding-bottom: 2rem;
     }
 
     @include desktop() {
@@ -141,6 +141,7 @@
       @include tablet() {
         margin: 0;
         margin-left: 6rem;
+        margin-right: 6rem;
       }
     }
   }
