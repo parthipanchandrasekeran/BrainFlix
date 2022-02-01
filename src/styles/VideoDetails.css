@@ -83,6 +83,12 @@
     padding: 0;
   }
 }
+@media (min-width: 769px) and (min-width: 1280px) {
+  .video-details-container__left-section {
+    justify-content: space-between;
+    text-align: center;
+  }
+}
 .video-details-container__channel-name {
   font-size: 3rem;
   line-height: 5rem;
@@ -102,6 +108,11 @@
     padding-top: 0;
     padding-bottom: 0;
     margin-left: 6rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 1280px) {
+  .video-details-container__time-stamp {
+    padding-top: 1.9px;
   }
 }
 .video-details-container__right-section {

@@ -54,6 +54,10 @@
     @include tablet() {
       flex-direction: row;
       padding: 0;
+      @include desktop() {
+        justify-content: space-between;
+        text-align: center;
+      }
     }
   }
 
@@ -72,6 +76,9 @@
       padding-top: 0;
       padding-bottom: 0;
       margin-left: 6rem;
+      @include desktop() {
+        padding-top: 1.9px;
+      }
     }
   }
   &__right-section {

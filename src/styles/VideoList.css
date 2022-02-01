@@ -61,7 +61,7 @@
 }
 .video-list-main__side-video {
   height: 17rem;
-  width: 25rem;
+  min-width: 25rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 4px;

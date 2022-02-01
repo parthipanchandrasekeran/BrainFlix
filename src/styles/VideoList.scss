@@ -37,7 +37,7 @@
 
   &__side-video {
     height: 17rem;
-    width: 25rem;
+    min-width: 25rem;
     object-fit: cover;
     border-radius: 4px;
     margin-right: 3rem;
