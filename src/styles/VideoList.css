@@ -107,7 +107,9 @@
     width: 70vw;
   }
 }
-.desktop-main__video-list {
-  width: 30vw;
-  margin-right: 63px;
+@media (min-width: 1280px) {
+  .desktop-main__video-list {
+    width: 30vw;
+    margin-right: 63px;
+  }
 }/*# sourceMappingURL=VideoList.css.map */

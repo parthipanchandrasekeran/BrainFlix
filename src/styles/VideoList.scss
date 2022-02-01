@@ -80,7 +80,9 @@
   }
 
   &__video-list {
-    width: 30vw;
-    margin-right: 63px;
+    @include desktop() {
+      width: 30vw;
+      margin-right: 63px;
+    }
   }
 }

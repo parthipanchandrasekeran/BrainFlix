@@ -5,15 +5,21 @@ function dateFormatter(dateFormated) {
   let day = commentDate.getDate();
   const year = commentDate.getFullYear();
 
-  if (month / 10 < 1) {
-    month = "0" + month;
+  const todaysDate = new Date();
+  //let todaysDateDay=todaysDate.getDate();
+  const diff = Math.abs(todaysDate - commentDate);
+  const days = Math.round(diff / (1000 * 3600 * 24));
+
+  let actualDays = 0;
+
+  if (diff > 30) {
+    actualDays = `${days} days ago`;
+  }
+  if (diff === 1) {
+    actualDays = `${days} day ago`;
   }
 
-  if (day / 10 < 1) {
-    day = "0" + day;
-  }
-  const actualDate = month + "/" + day + "/" + year;
-  return actualDate;
+  return actualDays;
 }
 
 export default dateFormatter;
