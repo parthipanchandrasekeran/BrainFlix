@@ -18,8 +18,6 @@
   box-sizing: border-box;
 }
 
-//mobile styles
-
 @mixin pageHeaderMobile {
   font-size: 6rem;
   line-height: 8rem;
@@ -51,31 +49,34 @@
 }
 
 @mixin headerTitle {
-  font-size: 3rem;
-  line-height: 4rem;
-  font-weight: 700;
-  text-transform: capitalize;
+  font-size: 33px;
+  line-height: 11rem;
+  font-family: averiNextBold;
 }
 
 @mixin subHeadertitle {
-  font-size: 3rem;
-  line-height: 4rem;
-  font-weight: 600;
-  text-transform: capitalize;
+  font-size: 4rem;
+  line-height: 5rem;
+  font-family: averiNextBold;
 }
 
 @mixin bodyCopyText {
-  font-size: 2rem;
+  font-size: 14px;
   line-height: 22px;
-  font-weight: 400;
-  text-transform: capitalize;
+  font-family: averiNextBold;
 }
 
 @mixin bodyCopyTextMobile {
-  font-size: 2.8rem;
-  line-height: 30px;
-  font-weight: 400;
-  text-transform: capitalize;
+  font-size: 14px;
+  line-height: 22px;
+
+  font-family: averiNextRegular;
+}
+
+@mixin labelTablet {
+  font-size: 3rem;
+  line-height: 5rem;
+  font-family: averiNextBold;
 }
 
 @mixin padding {

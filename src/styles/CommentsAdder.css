@@ -76,15 +76,36 @@
   line-height: 18px;
   font-family: averiNextBold;
 }
+@media (min-width: 769px) {
+  .comments-details-container__name {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextBold;
+  }
+}
 .comments-details-container__date {
   font-size: 13px;
   line-height: 18px;
   font-family: averiNextRegular;
   color: #afafaf;
 }
+@media (min-width: 769px) {
+  .comments-details-container__date {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextRegular;
+  }
+}
 .comments-details-container__comments-details {
   padding-top: 2rem;
   font-size: 13px;
   line-height: 18px;
   font-family: averiNextRegular;
+}
+@media (min-width: 769px) {
+  .comments-details-container__comments-details {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextRegular;
+  }
 }/*# sourceMappingURL=CommentsAdder.css.map */

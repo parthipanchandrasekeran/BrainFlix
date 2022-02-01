@@ -9,7 +9,7 @@
     @include tablet() {
       margin: 6rem 9rem;
       padding: 6rem;
-
+      @include bodyCopyText();
       padding-bottom: 0;
 
       @include desktop() {
@@ -114,6 +114,9 @@
     @include subHeaderMobile();
     padding: 2rem 0;
     color: $primary-color-silver;
+    @include tablet() {
+      @include bodyCopyText();
+    }
   }
 
   &__form-button {
@@ -149,6 +152,7 @@
         margin: 0;
         margin-left: 6rem;
         margin-right: 6rem;
+        @include bodyCopyText();
       }
     }
   }

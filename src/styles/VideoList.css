@@ -48,6 +48,13 @@
   line-height: 18px;
   font-family: averiNextBold;
 }
+@media (min-width: 769px) {
+  .video-list-main__video-title {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextBold;
+  }
+}
 @media (min-width: 1280px) {
   .video-list-main__video-title {
     width: 70%;
@@ -59,14 +66,27 @@
   font-family: averiNextRegular;
   padding-top: 3rem;
 }
+@media (min-width: 769px) {
+  .video-list-main__video-channel {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextRegular;
+  }
+}
 .video-list-main__side-video {
   height: 17rem;
   min-width: 25rem;
+  max-width: 25rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 4px;
   margin-right: 3rem;
   cursor: pointer;
+}
+@media (min-width: 769px) {
+  .video-list-main__side-video {
+    height: 19rem;
+  }
 }
 @media (min-width: 769px) {
   .video-list-main__video-details-main {
@@ -88,6 +108,9 @@
   .video-list-main__header {
     margin: 6rem 9rem;
     padding: 0 6rem;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextBold;
   }
 }
 @media (min-width: 769px) and (min-width: 1280px) {

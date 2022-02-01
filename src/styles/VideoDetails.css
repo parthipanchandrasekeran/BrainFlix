@@ -70,6 +70,9 @@
 @media (min-width: 769px) {
   .video-details-container__heading {
     padding-bottom: 0;
+    font-size: 33px;
+    line-height: 11rem;
+    font-family: averiNextBold;
   }
 }
 .video-details-container__left-section {
@@ -94,6 +97,13 @@
   line-height: 5rem;
   font-family: averiNextBold;
 }
+@media (min-width: 769px) {
+  .video-details-container__channel-name {
+    font-size: 4rem;
+    line-height: 5rem;
+    font-family: averiNextBold;
+  }
+}
 .video-details-container__time-stamp {
   font-size: 13px;
   line-height: 18px;
@@ -108,6 +118,9 @@
     padding-top: 0;
     padding-bottom: 0;
     margin-left: 6rem;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextRegular;
   }
 }
 @media (min-width: 769px) and (min-width: 1280px) {
@@ -155,12 +168,26 @@
   font-size: 3rem;
   color: #afafaf;
 }
+@media (min-width: 769px) {
+  .video-details-container__views-info {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextRegular;
+  }
+}
 .video-details-container__likes-info {
   font-size: 13px;
   line-height: 18px;
   font-family: averiNextRegular;
   font-size: 3rem;
   color: #afafaf;
+}
+@media (min-width: 769px) {
+  .video-details-container__likes-info {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextRegular;
+  }
 }
 .video-details-container__likes-icon {
   padding-right: 2rem;
@@ -179,6 +206,9 @@
 }
 @media (min-width: 769px) {
   .video-details-container__video-information {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: averiNextRegular;
     margin: 0 9rem;
     padding: 0 6rem;
   }

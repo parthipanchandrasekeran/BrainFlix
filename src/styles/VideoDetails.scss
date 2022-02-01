@@ -43,6 +43,7 @@
     padding-bottom: 4rem;
     @include tablet() {
       padding-bottom: 0;
+      @include headerTitle();
     }
   }
 
@@ -63,6 +64,9 @@
 
   &__channel-name {
     @include sectionHeaderMobile();
+    @include tablet() {
+      @include subHeadertitle();
+    }
   }
 
   &__time-stamp {
@@ -76,6 +80,7 @@
       padding-top: 0;
       padding-bottom: 0;
       margin-left: 6rem;
+      @include bodyCopyTextMobile();
       @include desktop() {
         padding-top: 1.9px;
       }
@@ -118,12 +123,18 @@
     @include bodyCopyMobile();
     font-size: 3rem;
     color: $primary-color-silver;
+    @include tablet() {
+      @include bodyCopyTextMobile();
+    }
   }
 
   &__likes-info {
     @include bodyCopyMobile();
     font-size: 3rem;
     color: $primary-color-silver;
+    @include tablet() {
+      @include bodyCopyTextMobile();
+    }
   }
 
   &__likes-icon {
@@ -142,8 +153,10 @@
     @include bodyCopyMobile();
     padding: 0 4rem;
     @include tablet() {
+      @include bodyCopyTextMobile();
       margin: 0 9rem;
       padding: 0 6rem;
+
       @include desktop() {
         margin: 0 63px;
         margin-right: 0;

@@ -55,13 +55,22 @@
 
   &__name {
     @include subHeaderMobile();
+    @include tablet() {
+      @include bodyCopyText();
+    }
   }
   &__date {
     @include bodyCopyMobile();
     color: $primary-color-silver;
+    @include tablet() {
+      @include bodyCopyTextMobile();
+    }
   }
   &__comments-details {
     padding-top: 2rem;
     @include bodyCopyMobile();
+    @include tablet() {
+      @include bodyCopyTextMobile();
+    }
   }
 }

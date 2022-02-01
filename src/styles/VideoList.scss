@@ -26,6 +26,10 @@
   }
   &__video-title {
     @include subHeaderMobile();
+
+    @include tablet() {
+      @include bodyCopyText();
+    }
     @include desktop() {
       width: 70%;
     }
@@ -33,15 +37,22 @@
   &__video-channel {
     @include bodyCopyMobile();
     padding-top: 3rem;
+    @include tablet() {
+      @include bodyCopyTextMobile();
+    }
   }
 
   &__side-video {
     height: 17rem;
     min-width: 25rem;
+    max-width: 25rem;
     object-fit: cover;
     border-radius: 4px;
     margin-right: 3rem;
     cursor: pointer;
+    @include tablet() {
+      height: 19rem;
+    }
   }
 
   &__video-details-main {
@@ -60,6 +71,7 @@
     @include tablet() {
       margin: 6rem 9rem;
       padding: 0 6rem;
+      @include bodyCopyText();
       @include desktop() {
         margin: 6rem 0;
       }

@@ -121,7 +121,7 @@
       width: 100%;
       border-radius: 1rem;
       border: 1px solid;
-      @include subHeaderMobile();
+      @include bodyCopyText();
       color: $primary-color-white;
       background: url("../assets/Icons/upload.svg"), $primary-color-blue;
       background-repeat: no-repeat;
