@@ -97,6 +97,7 @@
 @media (min-width: 1280px) {
   .insert-comment-container__main {
     margin: 0 23rem;
+    margin-right: 0;
   }
 }
 .insert-comment-container__form-class {

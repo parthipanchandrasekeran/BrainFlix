@@ -32,6 +32,12 @@
 @media (min-width: 769px) and (min-width: 1280px) {
   .comments-details-container {
     margin: 0 63px;
+    margin-right: 0;
+  }
+}
+@media (min-width: 1280px) {
+  .comments-details-container:nth-child(3) {
+    border-bottom: none;
   }
 }
 .comments-details-container__image {

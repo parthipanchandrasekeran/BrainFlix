@@ -2,6 +2,9 @@
 @import "./partials/global";
 
 .video-details-container {
+  @include desktop() {
+    margin-bottom: 20rem;
+  }
   &__details-container {
     display: flex;
     justify-content: space-between;
@@ -17,6 +20,7 @@
       padding-bottom: 4rem;
       @include desktop() {
         margin: 0 63px;
+        margin-right: 0;
       }
     }
   }
@@ -135,6 +139,7 @@
       padding: 0 6rem;
       @include desktop() {
         margin: 0 63px;
+        margin-right: 0;
       }
     }
   }

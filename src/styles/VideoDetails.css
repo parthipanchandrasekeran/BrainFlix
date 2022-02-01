@@ -16,6 +16,11 @@
   box-sizing: border-box;
 }
 
+@media (min-width: 1280px) {
+  .video-details-container {
+    margin-bottom: 20rem;
+  }
+}
 .video-details-container__details-container {
   display: flex;
   justify-content: space-between;
@@ -35,6 +40,7 @@
 @media (min-width: 769px) and (min-width: 1280px) {
   .video-details-container__details-container {
     margin: 0 63px;
+    margin-right: 0;
   }
 }
 .video-details-container__heading-container {
@@ -169,5 +175,6 @@
 @media (min-width: 769px) and (min-width: 1280px) {
   .video-details-container__video-information {
     margin: 0 63px;
+    margin-right: 0;
   }
 }/*# sourceMappingURL=VideoDetails.css.map */

@@ -15,7 +15,8 @@
       padding-bottom: 6rem;
       padding-top: 0;
       @include desktop() {
-        margin: 0 63px;
+        margin: 0;
+        padding-right: 0;
       }
     }
   }
@@ -25,6 +26,9 @@
   }
   &__video-title {
     @include subHeaderMobile();
+    @include desktop() {
+      width: 70%;
+    }
   }
   &__video-channel {
     @include bodyCopyMobile();
@@ -46,6 +50,9 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      @include desktop() {
+        width: 65%;
+      }
     }
   }
   &__header {
@@ -54,8 +61,26 @@
       margin: 6rem 9rem;
       padding: 0 6rem;
       @include desktop() {
-        margin: 6rem 63px;
+        margin: 6rem 0;
       }
     }
+  }
+}
+
+.desktop-main {
+  @include desktop() {
+    display: flex;
+  }
+
+  &__desktop-sub-container {
+    @include desktop() {
+      border-right: 1px solid $secondary-color-mercury;
+      width: 70vw;
+    }
+  }
+
+  &__video-list {
+    width: 30vw;
+    margin-right: 63px;
   }
 }

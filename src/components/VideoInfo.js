@@ -379,18 +379,24 @@ export default class VideoInfo extends Component {
     return (
       <>
         <HeroVideo mainVideo={this.state.videoTotalData[0].image} />
-        <VideoDetails
-          details={this.state.videoTotalData[0]}
-          key={this.state.videoTotalData[0].id}
-          date={dateFormatter(this.state.videoTotalData[0].timestamp)}
-        />
-        <Comments
-          count={commentCounter(this.state.videoTotalData[0].comments)}
-        />
+        <div className="desktop-main">
+          <div className="desktop-main__desktop-sub-container">
+            <VideoDetails
+              details={this.state.videoTotalData[0]}
+              key={this.state.videoTotalData[0].id}
+              date={dateFormatter(this.state.videoTotalData[0].timestamp)}
+            />
+            <Comments
+              count={commentCounter(this.state.videoTotalData[0].comments)}
+            />
 
-        <div>{commentAdderList}</div>
-        <VideoListHeader />
-        <div>{videoAdderList}</div>
+            <div>{commentAdderList}</div>
+          </div>
+          <div className="desktop-main__video-list">
+            <VideoListHeader />
+            <div>{videoAdderList}</div>
+          </div>
+        </div>
       </>
     );
   }
