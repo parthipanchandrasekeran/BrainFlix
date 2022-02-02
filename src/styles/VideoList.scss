@@ -43,7 +43,7 @@
   }
 
   &__side-video {
-    height: 17rem;
+    height: 20rem;
     min-width: 25rem;
     max-width: 25rem;
     object-fit: cover;
@@ -56,6 +56,9 @@
   }
 
   &__video-details-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     @include tablet() {
       width: 25%;
       display: flex;

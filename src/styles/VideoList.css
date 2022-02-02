@@ -74,7 +74,7 @@
   }
 }
 .video-list-main__side-video {
-  height: 17rem;
+  height: 20rem;
   min-width: 25rem;
   max-width: 25rem;
   -o-object-fit: cover;
@@ -87,6 +87,11 @@
   .video-list-main__side-video {
     height: 19rem;
   }
+}
+.video-list-main__video-details-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 @media (min-width: 769px) {
   .video-list-main__video-details-main {

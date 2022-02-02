@@ -17,7 +17,7 @@
     }
   }
 
-  &:nth-child(3) {
+  &:last-child {
     @include desktop() {
       border-bottom: none;
     }
