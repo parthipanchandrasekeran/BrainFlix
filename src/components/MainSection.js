@@ -350,7 +350,6 @@ export default class VideoInfo extends Component {
         return (
           <CommentDetails
             key={comments.timestamp + comments.name + index}
-            s
             name={comments.name}
             comment={comments.comment}
             timestamp={dateFormatter(comments.timestamp)}
