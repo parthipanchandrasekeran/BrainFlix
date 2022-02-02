@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import VideoInfo from "./components/VideoInfo";
+import VideoInfo from "./components/MainSection";
 
 function App() {
   return (
