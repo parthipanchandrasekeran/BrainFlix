@@ -105,6 +105,7 @@
     }
   }
   &__upload-button {
+    cursor: pointer;
     height: 10rem;
     width: 100%;
     border-radius: 1rem;
@@ -117,6 +118,7 @@
     background-position: 1rem 2.5rem;
 
     &--tablet {
+      cursor: pointer;
       height: 10rem;
       width: 100%;
       border-radius: 1rem;
