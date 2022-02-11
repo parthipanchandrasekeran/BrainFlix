@@ -1,0 +1,27 @@
+@font-face {
+  font-family: averiNextBold;
+  src: url(../../assets/Font/AvenirNextLTPro-Bold.otf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: averiNextRegular;
+  src: url(../../assets/Font/AvenirNextLTPro-Regular.otf);
+  font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 4px;
+  font-family: "averiNextBold";
+  box-sizing: border-box;
+}
+
+.upload-page__hero-section-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  border-radius: 1rem;
+}
+.upload-page__hero-section-image-container {
+  padding: 2rem;
+}/*# sourceMappingURL=UploadPage.css.map */

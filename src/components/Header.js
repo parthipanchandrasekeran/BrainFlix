@@ -48,7 +48,7 @@ export default class Header extends Component {
           </div>
         </div>
 
-        <Link to="upload" className="header__upload-container">
+        <Link to="Upload" className="header__upload-container">
           <button className="header__upload-button">Upload</button>
         </Link>
       </div>
