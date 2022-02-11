@@ -11,6 +11,7 @@ export default class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/HomePage" component={HomePage} />
         </Switch>
       </Router>
     );

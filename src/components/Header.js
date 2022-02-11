@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "../assets/Logo/BrainFlix-logo.svg";
 import headerIcon from "../assets/Images/Mohan-muruge.jpg";
+import { Link } from "react-router-dom";
 import "../styles/header.scss";
 
 export default class Header extends Component {
@@ -8,9 +9,9 @@ export default class Header extends Component {
     return (
       <div className="header">
         <div className="header__logo-container">
-          <a href="">
+          <Link to="/HomePage">
             <img className="header__logo" src={logo} alt="logo" />
-          </a>
+          </Link>
         </div>
 
         <div className="header__right-main-container--tablet">
