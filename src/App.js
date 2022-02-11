@@ -1,14 +1,18 @@
 import "./App.css";
+import HomePage from "./components/HomePage";
 import Header from "./components/Header";
-import VideoInfo from "./components/MainSection";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Component } from "react";
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <VideoInfo />
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+        </Switch>
+      </Router>
+    );
+  }
 }
-
-export default App;
