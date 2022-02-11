@@ -14,20 +14,16 @@ import CommentDetails from "./Comments/CommentDetails";
 import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 
-export default class VideoInfo extends Component {
+export default class MainSection extends Component {
   state = {
     videoTotalData: videodetails,
   };
 
-  clickHandler = (clickedVideoObject, videoObj, clickedIndex) => {
-    const tempVideoArrayList = this.state.videoTotalData;
-    const removedVideoArrayList = [];
-    removedVideoArrayList.push(this.state.videoTotalData[0]);
-    removedVideoArrayList.unshift(clickedVideoObject);
-
-    tempVideoArrayList.splice(clickedIndex, 1, removedVideoArrayList[1]);
-
-    tempVideoArrayList.splice(0, 1, clickedVideoObject);
+  clickHandler = (clickedVideoObject) => {
+    const tempVideoArrayList = this.state.videoTotalData.filter((videoData) => {
+      return clickedVideoObject != videoData;
+    });
+    tempVideoArrayList.unshift(clickedVideoObject);
 
     this.setState({
       videoTotalData: tempVideoArrayList,
