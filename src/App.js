@@ -12,8 +12,9 @@ export default class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/HomePage" component={HomePage} />
-          <Route path="/UploadPage" component={UploadPage} />
+          <Route path="/Home" component={HomePage} />
+
+          <Route path="/Upload" component={UploadPage} />
         </Switch>
       </Router>
     );

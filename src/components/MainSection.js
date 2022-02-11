@@ -53,8 +53,6 @@ export default class MainSection extends Component {
             title={comments.title}
             channel={comments.channel}
             clickedVideoObject={comments}
-            clickedIndex={index}
-            videoObj={this.state.videoTotalData}
             clickHandler={this.clickHandler}
           />
         );

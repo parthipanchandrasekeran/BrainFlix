@@ -6,15 +6,13 @@ function VideoList({
   channel,
   clickedVideoObject,
   clickHandler,
-  videoObj,
-  clickedIndex,
 }) {
   return (
     <div className="video-list-main">
       <div className="video-list-main__video-main-container">
         <img
           onClick={() => {
-            clickHandler(clickedVideoObject, videoObj, clickedIndex);
+            clickHandler(clickedVideoObject);
           }}
           className="video-list-main__side-video"
           src={image}

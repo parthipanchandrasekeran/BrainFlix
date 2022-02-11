@@ -9,7 +9,7 @@ export default class Header extends Component {
     return (
       <div className="header">
         <div className="header__logo-container">
-          <Link to="/HomePage">
+          <Link to="/Home">
             <img className="header__logo" src={logo} alt="logo" />
           </Link>
         </div>
@@ -22,9 +22,10 @@ export default class Header extends Component {
               placeholder="Search"
             />
           </div>
-          <div className="header__upload-container--tablet">
+
+          <Link to="Upload" className="header__upload-container--tablet">
             <button className="header__upload-button--tablet">Upload</button>
-          </div>
+          </Link>
           <div className="header__icon-container--tablet">
             <img
               className="header__icon--tablet"
@@ -47,9 +48,9 @@ export default class Header extends Component {
           </div>
         </div>
 
-        <div className="header__upload-container">
+        <Link to="upload" className="header__upload-container">
           <button className="header__upload-button">Upload</button>
-        </div>
+        </Link>
       </div>
     );
   }
