@@ -1,5 +1,6 @@
 import { Component } from "react";
 import UploadVideoImage from "../assets/Images/Upload-video-preview.jpg";
+import UploadForm from "./UploadPage/UploadForm";
 import "../styles/UploadPage.scss";
 
 export default class UploadPage extends Component {
@@ -17,6 +18,7 @@ export default class UploadPage extends Component {
             />
           </div>
         </section>
+        <UploadForm />
       </>
     );
   }

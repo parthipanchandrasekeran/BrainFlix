@@ -2,6 +2,7 @@
 @import "./partials/global";
 
 .Hero-container__main {
+  padding-top: 4rem;
   @include tablet() {
     height: 100%;
     background-color: $secondary-color-dark-black;

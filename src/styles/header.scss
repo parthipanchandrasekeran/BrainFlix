@@ -3,6 +3,8 @@
 
 .header {
   padding: 0 6rem;
+  padding-bottom: 4rem;
+  border-bottom: solid 1px $secondary-color-mercury;
 
   @include tablet() {
     display: flex;

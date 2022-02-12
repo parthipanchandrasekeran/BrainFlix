@@ -2,12 +2,55 @@
 @import "./partials/global";
 
 .upload-page {
+  &-header {
+    padding: 4rem;
+    @include pageHeaderMobile();
+  }
+  &__hero-section-title {
+    padding: 0 4rem;
+    @include sectionHeaderMobile();
+    color: $primary-color-silver;
+  }
   &__hero-section-image {
     object-fit: cover;
     width: 100%;
     border-radius: 1rem;
     &-container {
-      padding: 2rem;
+      padding: 0 4rem;
     }
+  }
+}
+
+.upload-form {
+  &__label-title {
+    @include sectionHeaderMobile();
+    color: $primary-color-silver;
+    padding: 0 4rem;
+  }
+  &__label-description {
+    @include sectionHeaderMobile();
+    color: $primary-color-silver;
+    padding: 0 4rem;
+  }
+
+  &__input-description {
+    margin: 0 4rem;
+  }
+  &__input-title {
+    width: 100%;
+    height: 100%;
+    &-container {
+      margin: 0 4rem;
+      min-height: 9rem;
+      min-width: 240px;
+    }
+  }
+
+  &__publish-button {
+    margin: 0 4rem;
+  }
+
+  &__cancel-button {
+    margin: 0 4rem;
   }
 }

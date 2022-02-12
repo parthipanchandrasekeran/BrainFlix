@@ -16,6 +16,9 @@
   box-sizing: border-box;
 }
 
+.Hero-container__main {
+  padding-top: 4rem;
+}
 @media (min-width: 769px) {
   .Hero-container__main {
     height: 100%;
