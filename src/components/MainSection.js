@@ -47,14 +47,26 @@ export default class MainSection extends Component {
   }
 
   componentDidUpdate(prevprops, prevState) {
-    /* if (prevprops.match !== this.routerprops.match) {
-      console.log(prevprops.match);
-      console.log(this.routerprops.match);
-    }*/
+    const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
+    if (prevprops.match.params.videoid !== this.props.match.params.videoid) {
+      axios
+        .get(
+          "https://project-2-api.herokuapp.com/videos/" +
+            this.props.match.params.videoid +
+            "?api_key=" +
+            API_KEY
+        )
+        .then((response) => {
+          this.setState({ mainVideoList: response.data });
+          this.setState({
+            mainVideoListComment: response.data.comments,
+          });
+          this.setState({ defaultID: response.data.id });
+        });
+    }
   }
 
   render() {
-    console.log(this.props.match.params);
     const commentAdderList = this.state.mainVideoListComment.map((comments) => {
       return (
         <CommentDetails
