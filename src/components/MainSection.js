@@ -47,14 +47,14 @@ export default class MainSection extends Component {
   }
 
   componentDidUpdate(prevprops, prevState) {
-    console.log(prevprops, prevState);
+    /* if (prevprops.match !== this.routerprops.match) {
+      console.log(prevprops.match);
+      console.log(this.routerprops.match);
+    }*/
   }
 
   render() {
-    const url = this.props.match;
-    console.log(url);
-
-    console.log(this.props);
+    console.log(this.props.match.params);
     const commentAdderList = this.state.mainVideoListComment.map((comments) => {
       return (
         <CommentDetails
@@ -75,7 +75,6 @@ export default class MainSection extends Component {
             title={comments.title}
             channel={comments.channel}
             clickedVideoObject={comments}
-            url={url}
           />
         );
       }

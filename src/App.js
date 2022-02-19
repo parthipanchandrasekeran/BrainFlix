@@ -13,13 +13,13 @@ export default class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/Home" component={HomePage} />
           <Route
-            path="/Home/VideoPlayerPage/:videoid"
-            render={(routerprops) => {
-              return <MainSection match={routerprops.match} {...routerprops} />;
+            path="/VideoPlayerPage/:videoid"
+            render={(RouterProps) => {
+              return <MainSection match={RouterProps.match} {...RouterProps} />;
             }}
           />
+          <Route exact path="/Home" component={HomePage} />
 
           <Route exact path="/Upload" component={UploadPage} />
         </Switch>
