@@ -48,7 +48,7 @@ export default class MainSection extends Component {
 
   componentDidUpdate(prevprops, prevState) {
     const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
-    if (prevprops.match.params.videoid !== this.props.match.params.videoid) {
+    if (prevprops.match.params.videoid !== this.state.defaultID) {
       axios
         .get(
           "https://project-2-api.herokuapp.com/videos/" +
@@ -57,11 +57,24 @@ export default class MainSection extends Component {
             API_KEY
         )
         .then((response) => {
+          axios
+            .get(
+              "https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY
+            )
+            .then((response) => {
+              const filteredArrayList = response.data.filter((video) => {
+                return video.id !== this.props.match.params.videoid;
+              });
+
+              filteredArrayList.unshift(response.data[0]);
+              this.setState({ sideVideoList: filteredArrayList });
+            });
           this.setState({ mainVideoList: response.data });
           this.setState({
             mainVideoListComment: response.data.comments,
           });
           this.setState({ defaultID: response.data.id });
+          console.log(this.state);
         });
     }
   }
