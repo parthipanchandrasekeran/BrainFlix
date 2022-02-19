@@ -51,6 +51,10 @@ export default class MainSection extends Component {
   }
 
   render() {
+    const url = this.props.match;
+    console.log(url);
+
+    console.log(this.props);
     const commentAdderList = this.state.mainVideoListComment.map((comments) => {
       return (
         <CommentDetails
@@ -71,6 +75,7 @@ export default class MainSection extends Component {
             title={comments.title}
             channel={comments.channel}
             clickedVideoObject={comments}
+            url={url}
           />
         );
       }

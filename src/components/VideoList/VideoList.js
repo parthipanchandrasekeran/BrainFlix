@@ -6,7 +6,7 @@ export default class VideoList extends Component {
     return (
       <div className="video-list-main">
         <div className="video-list-main__video-main-container">
-          <Link to={"/videoplayerpage/" + this.props.clickedVideoObject.id}>
+          <Link to={"/VideoPlayerPage/" + this.props.clickedVideoObject.id}>
             <img
               className="video-list-main__side-video"
               src={this.props.image}
