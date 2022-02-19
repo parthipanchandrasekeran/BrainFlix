@@ -5,13 +5,7 @@ export default class VideoList extends Component {
     return (
       <div className="video-list-main">
         <div className="video-list-main__video-main-container">
-          <img
-            onClick={() => {
-              this.props.clickHandler(this.props.clickedVideoObject);
-            }}
-            className="video-list-main__side-video"
-            src={this.props.image}
-          />
+          <img className="video-list-main__side-video" src={this.props.image} />
 
           <div className="video-list-main__video-details-main">
             <p className="video-list-main__video-title">{this.props.title}</p>
