@@ -19,6 +19,7 @@ export default class MainSection extends Component {
     sideVideoList: [],
     mainVideoList: [],
     mainVideoListComment: [],
+    defaultID: "",
   };
 
   componentDidMount() {
@@ -38,34 +39,34 @@ export default class MainSection extends Component {
           .then((response) => {
             this.setState({ mainVideoList: response.data });
             this.setState({ mainVideoListComment: response.data.comments });
-            console.log(response.data);
-            console.log(response.data.comments);
+            this.setState({ defaultID: response.data.id });
           });
-        console.log(response.data);
       });
 
     return;
   }
 
+  componentDidUpdate(prevprops, prevState) {
+    console.log(prevprops, prevState);
+  }
+
   render() {
-    const commentAdderList = this.state.mainVideoListComment.map(
-      (comments, index) => {
-        return (
-          <CommentDetails
-            key={comments.timestamp + comments.name + index}
-            name={comments.name}
-            comment={comments.comment}
-            timestamp={dateFormatter(comments.timestamp)}
-          />
-        );
-      }
-    );
+    const commentAdderList = this.state.mainVideoListComment.map((comments) => {
+      return (
+        <CommentDetails
+          key={comments.id}
+          name={comments.name}
+          comment={comments.comment}
+          timestamp={dateFormatter(comments.timestamp)}
+        />
+      );
+    });
 
     const videoAdderList = this.state.sideVideoList.map((comments, index) => {
       if (index > 0) {
         return (
           <VideoList
-            key={comments.timestamp + index}
+            key={comments.id}
             image={comments.image}
             title={comments.title}
             channel={comments.channel}
