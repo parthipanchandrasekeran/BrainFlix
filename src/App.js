@@ -4,7 +4,8 @@ import Header from "./components/Header";
 import UploadPage from "./components/UploadPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
-import MainSection from "./components/MainSection";
+import MainSection from "./components/VideoPage";
+import VideoPage from "./components/VideoPage";
 
 export default class App extends Component {
   render() {
@@ -13,11 +14,11 @@ export default class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/Home" component={HomePage} />
+          <Route path="/Home" component={HomePage} />
           <Route
             path="/VideoPlayerPage/:videoid"
             render={(RouterProps) => {
-              return <MainSection match={RouterProps.match} {...RouterProps} />;
+              return <VideoPage match={RouterProps.match} {...RouterProps} />;
             }}
           />
 

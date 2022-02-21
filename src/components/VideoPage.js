@@ -14,7 +14,7 @@ import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
 
-export default class MainSection extends Component {
+export default class VideoPage extends Component {
   state = {
     sideVideoList: [],
     mainVideoList: [],
@@ -40,16 +40,17 @@ export default class MainSection extends Component {
             this.setState({ mainVideoList: response.data });
             this.setState({ mainVideoListComment: response.data.comments });
             this.setState({ defaultID: response.data.id });
+            console.log(this.state);
           });
       });
-
-    return;
   }
 
   componentDidUpdate(prevprops, prevState) {
     const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
-    console.log(this.props.match);
+
     if (prevState.defaultID !== "") {
+      console.log(prevprops);
+      console.log(this.state);
       if (this.props.match.params.videoid !== this.state.defaultID) {
         axios
           .get(
