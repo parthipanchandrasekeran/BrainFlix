@@ -40,7 +40,6 @@ export default class HomePage extends Component {
             this.setState({ mainVideoList: response.data });
             this.setState({ mainVideoListComment: response.data.comments });
             this.setState({ defaultID: response.data.id });
-            console.log(this.state);
           });
       });
   }

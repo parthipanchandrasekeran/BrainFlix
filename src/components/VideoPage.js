@@ -50,8 +50,6 @@ export default class VideoPage extends Component {
     const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
 
     if (prevState.defaultID !== "") {
-      console.log(prevprops);
-      console.log(this.state);
       if (this.props.match.params.videoid !== this.state.defaultID) {
         axios
           .get(
@@ -78,7 +76,6 @@ export default class VideoPage extends Component {
               mainVideoListComment: response.data.comments,
             });
             this.setState({ defaultID: this.props.match.params.videoid });
-            console.log(this.state);
           });
       }
     }
