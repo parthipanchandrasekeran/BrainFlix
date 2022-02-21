@@ -23,7 +23,7 @@ export default class Header extends Component {
             />
           </div>
 
-          <Link to="Upload" className="header__upload-container--tablet">
+          <Link to="/Upload" className="header__upload-container--tablet">
             <button className="header__upload-button--tablet">Upload</button>
           </Link>
           <div className="header__icon-container--tablet">
@@ -48,7 +48,7 @@ export default class Header extends Component {
           </div>
         </div>
 
-        <Link to="Upload" className="header__upload-container">
+        <Link to="/Upload" className="header__upload-container">
           <button className="header__upload-button">Upload</button>
         </Link>
       </div>
