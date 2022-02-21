@@ -20,6 +20,7 @@ export default class VideoPage extends Component {
     mainVideoList: [],
     mainVideoListComment: [],
     defaultID: "",
+    VideoPlayerOn: false,
   };
 
   componentDidMount() {
@@ -40,7 +41,7 @@ export default class VideoPage extends Component {
             this.setState({ mainVideoList: response.data });
             this.setState({ mainVideoListComment: response.data.comments });
             this.setState({ defaultID: response.data.id });
-            console.log(this.state);
+            this.setState({ VideoPlayerOn: true });
           });
       });
   }
@@ -106,6 +107,8 @@ export default class VideoPage extends Component {
             clickedVideoObject={comments}
           />
         );
+      } else {
+        return;
       }
     });
 
