@@ -21,7 +21,7 @@ export default class App extends Component {
           />
           <Route exact path="/Home" component={HomePage} />
 
-          <Route exact path="/Upload" component={UploadPage} />
+          <Route path="/Upload" component={UploadPage} />
         </Switch>
       </Router>
     );
