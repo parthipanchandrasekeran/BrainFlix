@@ -14,6 +14,7 @@ export class UploadForm extends Component {
     event.preventDefault();
     console.log(this.state);
     alert("submitted successfully");
+    this.props.match.history.push("/Home");
   }
 
   render() {

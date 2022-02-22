@@ -18,7 +18,7 @@ export default class UploadPage extends Component {
             />
           </div>
         </section>
-        <UploadForm />
+        <UploadForm match={this.props} />
       </>
     );
   }
