@@ -11,10 +11,14 @@ export class UploadForm extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     console.log(this.state);
-    alert("submitted successfully");
-    this.props.match.history.push("/Home");
+    event.preventDefault();
+    if (this.state.title && this.state.description !== "") {
+      alert("Video Submitted Successfully!!lets go to Home Page Now");
+      this.props.match.history.push("/Home");
+    } else {
+      alert("Please Enter Title/Description to proceed");
+    }
   }
 
   render() {
