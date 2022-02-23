@@ -13,6 +13,7 @@ import CommentDetails from "./Comments/CommentDetails";
 import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
+const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
 
 export default class VideoPage extends Component {
   state = {
@@ -20,11 +21,10 @@ export default class VideoPage extends Component {
     mainVideoList: [],
     mainVideoListComment: [],
     defaultID: "",
-    VideoPlayerOn: false,
+    firstVideoid: "",
   };
 
   componentDidMount() {
-    const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
     axios
       .get("https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY)
       .then((response) => {
@@ -41,16 +41,17 @@ export default class VideoPage extends Component {
             this.setState({ mainVideoList: response.data });
             this.setState({ mainVideoListComment: response.data.comments });
             this.setState({ defaultID: response.data.id });
+
+            console.log(this.state);
           });
       });
   }
 
-  componentDidUpdate(prevprops, prevState) {
-    const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
-
+  componentDidUpdate(prevprops) {
     if (
-      prevprops.match !== this.props.match &&
-      this.props.match.params.videoid !== undefined
+      prevprops.match.params.videoid !== this.props.match.params.videoid &&
+      this.props.match.params.videoid !== undefined &&
+      this.props.match.path !== "/Home"
     ) {
       axios
         .get(
@@ -77,7 +78,34 @@ export default class VideoPage extends Component {
             mainVideoListComment: response.data.comments,
           });
           this.setState({ defaultID: this.props.match.params.videoid });
-          this.setState({ VideoPlayerOn: true });
+          this.setState({ firstVideoid: "" });
+          console.log(this.state);
+        });
+    } else if (
+      this.props.match.path === "/Home" &&
+      this.state.firstVideoid === ""
+    ) {
+      axios
+        .get("https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY)
+        .then((response) => {
+          const videoIDMain = response.data[0].id;
+          this.setState({ sideVideoList: response.data });
+          axios
+            .get(
+              "https://project-2-api.herokuapp.com/videos/" +
+                videoIDMain +
+                "?api_key=" +
+                API_KEY
+            )
+            .then((response) => {
+              this.setState({ mainVideoList: response.data });
+              this.setState({
+                mainVideoListComment: response.data.comments,
+              });
+              this.setState({ defaultID: response.data.id });
+              this.setState({ firstVideoid: videoIDMain });
+              console.log(this.state);
+            });
         });
     }
   }
