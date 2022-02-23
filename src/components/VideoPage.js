@@ -41,7 +41,6 @@ export default class VideoPage extends Component {
             this.setState({ mainVideoList: response.data });
             this.setState({ mainVideoListComment: response.data.comments });
             this.setState({ defaultID: response.data.id });
-            this.setState({ VideoPlayerOn: true });
           });
       });
   }
@@ -49,35 +48,37 @@ export default class VideoPage extends Component {
   componentDidUpdate(prevprops, prevState) {
     const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
 
-    if (prevState.defaultID !== "") {
-      if (this.props.match.params.videoid !== this.state.defaultID) {
-        axios
-          .get(
-            "https://project-2-api.herokuapp.com/videos/" +
-              this.props.match.params.videoid +
-              "?api_key=" +
-              API_KEY
-          )
-          .then((response) => {
-            axios
-              .get(
-                "https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY
-              )
-              .then((response) => {
-                const filteredArrayList = response.data.filter((video) => {
-                  return video.id !== this.props.match.params.videoid;
-                });
-
-                filteredArrayList.unshift(response.data[0]);
-                this.setState({ sideVideoList: filteredArrayList });
+    if (
+      prevprops.match !== this.props.match &&
+      this.props.match.params.videoid !== undefined
+    ) {
+      axios
+        .get(
+          "https://project-2-api.herokuapp.com/videos/" +
+            this.props.match.params.videoid +
+            "?api_key=" +
+            API_KEY
+        )
+        .then((response) => {
+          axios
+            .get(
+              "https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY
+            )
+            .then((response) => {
+              const filteredArrayList = response.data.filter((video) => {
+                return video.id !== this.props.match.params.videoid;
               });
-            this.setState({ mainVideoList: response.data });
-            this.setState({
-              mainVideoListComment: response.data.comments,
+
+              filteredArrayList.unshift(response.data[0]);
+              this.setState({ sideVideoList: filteredArrayList });
             });
-            this.setState({ defaultID: this.props.match.params.videoid });
+          this.setState({ mainVideoList: response.data });
+          this.setState({
+            mainVideoListComment: response.data.comments,
           });
-      }
+          this.setState({ defaultID: this.props.match.params.videoid });
+          this.setState({ VideoPlayerOn: true });
+        });
     }
   }
 

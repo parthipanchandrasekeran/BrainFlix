@@ -1,10 +1,9 @@
 import "./App.css";
-import HomePage from "./components/HomePage";
+
 import Header from "./components/Header";
 import UploadPage from "./components/UploadPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
-import MainSection from "./components/VideoPage";
 import VideoPage from "./components/VideoPage";
 
 export default class App extends Component {
@@ -13,8 +12,8 @@ export default class App extends Component {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/Home" component={HomePage} />
+          <Route exact path="/" component={VideoPage} />
+          <Route path="/Home" component={VideoPage} />
           <Route
             path="/VideoPlayerPage/:videoid"
             render={(RouterProps) => {
@@ -22,7 +21,12 @@ export default class App extends Component {
             }}
           />
 
-          <Route path="/Upload" component={UploadPage} />
+          <Route
+            path="/Upload"
+            render={(RouterProps) => {
+              return <UploadPage match={RouterProps.match} {...RouterProps} />;
+            }}
+          />
         </Switch>
       </Router>
     );
