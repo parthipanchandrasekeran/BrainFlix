@@ -59,6 +59,12 @@ export class UploadForm extends Component {
           </button>
           <button className="upload-form__cancel-button">CANCEL</button>
         </div>
+        <div className="upload-form__button-container-main--tablet">
+          <button className="upload-form__cancel-button">CANCEL</button>
+          <button type="submit" className="upload-form__publish-button">
+            PUBLISH
+          </button>
+        </div>
       </form>
     );
   }

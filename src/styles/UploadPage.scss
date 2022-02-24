@@ -5,11 +5,21 @@
   &-header {
     padding: 4rem;
     @include pageHeaderMobile();
+    @include tablet() {
+      margin: 8rem;
+      padding: 0;
+      padding-bottom: 6rem;
+      @include headerTitle();
+      border-bottom: 1px solid $secondary-color-mercury;
+    }
   }
   &__hero-section-title {
     padding: 0 4rem;
     @include sectionHeaderMobile();
     color: $primary-color-silver;
+    @include tablet() {
+      padding: 0 8rem;
+    }
   }
   &__hero-section-image {
     object-fit: cover;
@@ -17,6 +27,11 @@
     border-radius: 1rem;
     &-container {
       padding: 0 4rem;
+    }
+
+    @include tablet() {
+      width: 50%;
+      padding-left: 4rem;
     }
   }
 }
@@ -26,11 +41,14 @@
     @include sectionHeaderMobile();
     color: $primary-color-silver;
     padding: 0 4rem;
+    @include tablet() {
+      padding: 4rem 8rem;
+    }
   }
   &__label-description {
     @include sectionHeaderMobile();
     color: $primary-color-silver;
-    padding: 4rem 4rem 0;
+    padding: 4rem 8rem;
   }
 
   &__input-description {
@@ -45,6 +63,8 @@
     @include bodyCopyMobile();
 
     border: solid 1px $secondary-color-mercury;
+    @include tablet() {
+    }
 
     &::placeholder {
       vertical-align: top;
@@ -54,6 +74,11 @@
     &-container {
       margin: 0 4rem;
       min-width: 240px;
+      @include tablet() {
+        padding-bottom: 6rem;
+        border-bottom: 2px solid $secondary-color-mercury;
+        margin: 0 8rem;
+      }
     }
   }
   &__input-title {
@@ -70,6 +95,9 @@
     &-container {
       margin: 0 4rem;
       min-width: 240px;
+      @include tablet() {
+        margin: 0 8rem;
+      }
     }
   }
 
@@ -77,6 +105,21 @@
     display: flex;
     flex-direction: column;
     padding: 4rem;
+    @include tablet() {
+      display: none;
+    }
+  }
+
+  &__button-container-main--tablet {
+    display: none;
+    @include tablet() {
+      display: flex;
+      flex-direction: column;
+      padding: 4rem;
+      flex-direction: row;
+      margin-left: 50%;
+      padding-top: 6rem;
+    }
   }
 
   &__publish-button {
