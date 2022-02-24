@@ -41,8 +41,6 @@ export default class VideoPage extends Component {
             this.setState({ mainVideoList: response.data });
             this.setState({ mainVideoListComment: response.data.comments });
             this.setState({ defaultID: response.data.id });
-
-            console.log(this.state);
           });
       });
   }
@@ -79,7 +77,6 @@ export default class VideoPage extends Component {
           });
           this.setState({ defaultID: this.props.match.params.videoid });
           this.setState({ firstVideoid: "" });
-          console.log(this.state);
         });
     } else if (
       this.props.match.path === "/Home" &&
@@ -104,7 +101,6 @@ export default class VideoPage extends Component {
               });
               this.setState({ defaultID: response.data.id });
               this.setState({ firstVideoid: videoIDMain });
-              console.log(this.state);
             });
         });
     }

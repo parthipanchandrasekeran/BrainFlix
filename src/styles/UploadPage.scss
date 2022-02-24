@@ -30,27 +30,100 @@
   &__label-description {
     @include sectionHeaderMobile();
     color: $primary-color-silver;
-    padding: 0 4rem;
+    padding: 4rem 4rem 0;
   }
 
   &__input-description {
-    margin: 0 4rem;
-  }
-  &__input-title {
+    min-height: 9rem;
+    border-radius: 1rem;
     width: 100%;
+    padding-left: 3rem;
     height: 100%;
+
+    @include bodyCopyMobile();
+
+    border: solid 1px $secondary-color-mercury;
+
+    &::placeholder {
+      vertical-align: top;
+      color: $secondary-color-dark-black;
+    }
+
     &-container {
       margin: 0 4rem;
-      min-height: 9rem;
+      min-width: 240px;
+      height: 20rem;
+    }
+  }
+  &__input-title {
+    padding: 3rem;
+    width: 100%;
+
+    @include bodyCopyMobile();
+
+    border: solid 1px $secondary-color-mercury;
+
+    &::placeholder {
+      color: $secondary-color-dark-black;
+    }
+    &-container {
+      margin: 0 4rem;
       min-width: 240px;
     }
   }
 
-  &__publish-button {
-    margin: 0 4rem;
+  &__button-container-main {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem;
   }
 
+  &__publish-button {
+    cursor: pointer;
+    height: 10rem;
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid;
+    @include subHeaderMobile();
+    color: $primary-color-white;
+    background: url("../assets//Icons/publish.svg"), $primary-color-blue;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 1rem 2.5rem;
+    margin-bottom: 4rem;
+    &--tablet {
+      cursor: pointer;
+      height: 10rem;
+      width: 100%;
+      border-radius: 1rem;
+      border: 1px solid;
+      @include bodyCopyText();
+      color: $primary-color-white;
+      background: url("../assets//Icons/publish.svg"), $primary-color-blue;
+      background-repeat: no-repeat;
+      background-size: 18px;
+      background-position: 1rem 2.5rem;
+    }
+  }
   &__cancel-button {
-    margin: 0 4rem;
+    cursor: pointer;
+    height: 10rem;
+    width: 100%;
+
+    border: 0;
+    @include subHeaderMobile();
+    color: $primary-color-blue;
+    background: $primary-color-white;
+    &--tablet {
+      cursor: pointer;
+      height: 10rem;
+      width: 100%;
+
+      border: 0px;
+      @include bodyCopyText();
+      color: $primary-color-white;
+
+      background-repeat: no-repeat;
+    }
   }
 }
