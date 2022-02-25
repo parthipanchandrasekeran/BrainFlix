@@ -38,7 +38,7 @@ export class UploadForm extends Component {
             className="upload-form__input-title"
             name="title"
             placeholder="Add a title to your video"
-          ></input>
+          />
         </div>
         <p className="upload-form__label-description">
           ADD A VIDEO DESCRIPTION
@@ -51,7 +51,7 @@ export class UploadForm extends Component {
             name="description"
             className="upload-form__input-description"
             placeholder="Add a description to your video"
-          ></input>
+          />
         </div>
         <div className="upload-form__button-container-main">
           <button type="submit" className="upload-form__publish-button">

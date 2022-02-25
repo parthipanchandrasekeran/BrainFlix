@@ -1,7 +1,7 @@
 import React from "react";
 import headerIcon from "../../assets/Images/Mohan-muruge.jpg";
 
-function Comments({ count, handleSubmit, handleComment }) {
+function Comments({ count, handleSubmit, handleComment, value }) {
   return (
     <div className="comments-container">
       <p className="comments-container__comments-count">{count} Comments</p>
@@ -28,15 +28,16 @@ function Comments({ count, handleSubmit, handleComment }) {
               >
                 JOIN THE CONVERSATION
               </label>
-              <textarea
+              <input
                 onChange={(event) => {
                   handleComment(event);
                 }}
+                value={value}
                 id="comment"
                 className="insert-comment-container__form-comment-input"
                 name="formcomment"
                 placeholder="Add new comment"
-              ></textarea>
+              />
               <div className="insert-comment-container__button-container">
                 <button
                   type="submit"
@@ -48,7 +49,10 @@ function Comments({ count, handleSubmit, handleComment }) {
             </div>
           </form>
           <div className="insert-comment-container__button-container--tablet">
-            <button className="insert-comment-container__form-button--tablet">
+            <button
+              type="submit"
+              className="insert-comment-container__form-button--tablet"
+            >
               COMMENT
             </button>
           </div>

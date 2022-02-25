@@ -109,11 +109,13 @@ export default class VideoPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("yay");
+    console.log(this.state.tempComments);
+    this.setState({ tempComments: "" });
+    console.log(event);
   };
 
   handleComment = (event) => {
-    console.log(event.target.value);
+    this.setState({ tempComments: event.target.value });
   };
 
   render() {
@@ -158,6 +160,7 @@ export default class VideoPage extends Component {
               handleSubmit={this.handleSubmit}
               count={commentCounter(this.state.mainVideoListComment)}
               handleComment={this.handleComment}
+              value={this.state.tempComments}
             />
 
             <div>{commentAdderList}</div>
