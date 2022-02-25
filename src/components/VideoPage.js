@@ -13,7 +13,7 @@ import CommentDetails from "./Comments/CommentDetails";
 import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
-const API_KEY = "3d460510-ea58-4cc5-8c3c-8e9c4ac6c9d0";
+const API_KEY = "c992036e-af16-4344-92cb-335a5502d6ac";
 
 export default class VideoPage extends Component {
   state = {
@@ -71,6 +71,9 @@ export default class VideoPage extends Component {
 
               filteredArrayList.unshift(response.data[0]);
               this.setState({ sideVideoList: filteredArrayList });
+            })
+            .catch((error) => {
+              console.log(error);
             });
           this.setState({ mainVideoList: response.data });
           this.setState({
@@ -102,35 +105,63 @@ export default class VideoPage extends Component {
               });
               this.setState({ defaultID: response.data.id });
               this.setState({ firstVideoid: videoIDMain });
+            })
+            .catch((error) => {
+              console.log(error);
             });
         });
     }
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  updateMainComment() {
+    axios
+      .get(
+        "https://project-2-api.herokuapp.com/videos/" +
+          this.state.defaultID +
+          "?api_key=" +
+          API_KEY
+      )
+      .then((response) => {
+        this.setState({
+          mainVideoListComment: response.data.comments,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  postComment() {
     axios
       .post(
         `https://project-2-api.herokuapp.com/videos/${this.state.defaultID}/comments?api_key=${API_KEY}`,
         { name: "BrainStation", comment: this.state.tempComments }
       )
       .then((response) => {
-        console.log(response);
-        axios
-          .get(
-            "https://project-2-api.herokuapp.com/videos/" +
-              this.state.defaultID +
-              "?api_key=" +
-              API_KEY
-          )
-          .then((response) => {
-            console.log(this.state);
-            this.setState({
-              mainVideoListComment: response.data.comments,
-            });
-            console.log(this.state);
-          });
+        this.updateMainComment();
+      })
+      .catch((error) => {
+        console.log(error);
       });
+  }
+
+  deleteComment = (commentid) => {
+    axios
+      .delete(
+        `https://project-2-api.herokuapp.com/videos/${this.state.defaultID}/comments/${commentid}?api_key=${API_KEY}`
+      )
+      .then((response) => {
+        console.log(response);
+        this.updateMainComment();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.postComment();
     this.setState({ tempComments: "" });
   };
 
@@ -146,6 +177,8 @@ export default class VideoPage extends Component {
           name={comments.name}
           comment={comments.comment}
           timestamp={dateFormatter(comments.timestamp)}
+          commentID={comments.id}
+          deleteComment={this.deleteComment}
         />
       );
     });

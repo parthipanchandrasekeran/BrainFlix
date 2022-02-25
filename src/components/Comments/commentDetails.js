@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function CommentDetails({ name, comment, timestamp }) {
+export default function CommentDetails({
+  name,
+  comment,
+  timestamp,
+  commentID,
+  deleteComment,
+}) {
   return (
     <div className="comments-details-container">
       <div className="comments-details-container__image"></div>
@@ -8,6 +14,14 @@ export default function CommentDetails({ name, comment, timestamp }) {
         <div className="comments-details-container__header-container">
           <p className="comments-details-container__name">{name}</p>
           <p className="comments-details-container__date">{timestamp}</p>
+          <button
+            onClick={() => {
+              deleteComment(commentID);
+            }}
+            className="comments-details-container__button"
+          >
+            D{commentID}
+          </button>
         </div>
         <p className="comments-details-container__comments-details">
           {comment}
