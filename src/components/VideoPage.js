@@ -112,6 +112,10 @@ export default class VideoPage extends Component {
     console.log("yay");
   };
 
+  handleComment = (event) => {
+    console.log(event.target.value);
+  };
+
   render() {
     const commentAdderList = this.state.mainVideoListComment.map((comments) => {
       return (
@@ -153,6 +157,7 @@ export default class VideoPage extends Component {
             <Comments
               handleSubmit={this.handleSubmit}
               count={commentCounter(this.state.mainVideoListComment)}
+              handleComment={this.handleComment}
             />
 
             <div>{commentAdderList}</div>
