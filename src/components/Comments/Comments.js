@@ -1,12 +1,10 @@
 import React from "react";
 import headerIcon from "../../assets/Images/Mohan-muruge.jpg";
 
-function Comments(props) {
+function Comments({ count, handleSubmit }) {
   return (
     <div className="comments-container">
-      <p className="comments-container__comments-count">
-        {props.count} Comments
-      </p>
+      <p className="comments-container__comments-count">{count} Comments</p>
       <div className="insert-comment-container">
         <div className="insert-comment-container__main">
           <div className="insert-comment-container__image-container">
@@ -17,6 +15,9 @@ function Comments(props) {
             />
           </div>
           <form
+            onSubmit={(event) => {
+              handleSubmit(event);
+            }}
             id="insert-comment-container__form"
             className="insert-comment-container__form-class"
           >
@@ -35,8 +36,8 @@ function Comments(props) {
               ></textarea>
               <div className="insert-comment-container__button-container">
                 <button
-                  className="insert-comment-container__form-button"
                   type="submit"
+                  className="insert-comment-container__form-button"
                 >
                   COMMENT
                 </button>
@@ -44,10 +45,7 @@ function Comments(props) {
             </div>
           </form>
           <div className="insert-comment-container__button-container--tablet">
-            <button
-              className="insert-comment-container__form-button--tablet"
-              type="submit"
-            >
+            <button className="insert-comment-container__form-button--tablet">
               COMMENT
             </button>
           </div>

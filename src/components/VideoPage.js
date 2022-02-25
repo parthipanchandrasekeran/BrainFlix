@@ -22,6 +22,7 @@ export default class VideoPage extends Component {
     mainVideoListComment: [],
     defaultID: "",
     firstVideoid: "",
+    tempComments: "",
   };
 
   componentDidMount() {
@@ -106,6 +107,11 @@ export default class VideoPage extends Component {
     }
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("yay");
+  };
+
   render() {
     const commentAdderList = this.state.mainVideoListComment.map((comments) => {
       return (
@@ -144,7 +150,10 @@ export default class VideoPage extends Component {
               key={this.state.mainVideoList.id}
               date={dateFormatter(this.state.mainVideoList.timestamp)}
             />
-            <Comments count={commentCounter(this.state.mainVideoListComment)} />
+            <Comments
+              handleSubmit={this.handleSubmit}
+              count={commentCounter(this.state.mainVideoListComment)}
+            />
 
             <div>{commentAdderList}</div>
           </div>
