@@ -16,6 +16,20 @@
   box-sizing: border-box;
 }
 
+.upload-page__desktop-main {
+  display: none;
+}
+@media (min-width: 1280px) {
+  .upload-page__desktop-main {
+    display: inline;
+    width: 50%;
+  }
+}
+@media (min-width: 1280px) {
+  .upload-page__mobile-main {
+    display: none;
+  }
+}
 .upload-page-header {
   padding: 4rem;
   font-size: 6rem;
@@ -33,6 +47,17 @@
     border-bottom: 1px solid #e1e1e1;
   }
 }
+@media (min-width: 769px) and (min-width: 1280px) {
+  .upload-page-header {
+    margin: 0 63px;
+    padding: 6rem;
+  }
+}
+@media (min-width: 1280px) {
+  .upload-page__hero-section {
+    width: 34%;
+  }
+}
 .upload-page__hero-section-title {
   padding: 0 4rem;
   font-size: 3rem;
@@ -43,6 +68,12 @@
 @media (min-width: 769px) {
   .upload-page__hero-section-title {
     padding: 0 8rem;
+  }
+}
+@media (min-width: 769px) and (min-width: 1280px) {
+  .upload-page__hero-section-title {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 .upload-page__hero-section-image {
@@ -60,7 +91,15 @@
     padding-left: 4rem;
   }
 }
+@media (min-width: 1280px) {
+  .upload-page__hero-section-image {
+    width: 100%;
+  }
+}
 
+.upload-form-desktop {
+  display: none;
+}
 .upload-form__label-title {
   font-size: 3rem;
   line-height: 5rem;
@@ -217,4 +256,10 @@
   font-family: averiNextBold;
   color: #ffffff;
   background-repeat: no-repeat;
+}
+
+@media (min-width: 1280px) {
+  .upload-page-header__desktop-main {
+    display: flex;
+  }
 }/*# sourceMappingURL=UploadPage.css.map */

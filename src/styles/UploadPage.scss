@@ -2,6 +2,18 @@
 @import "./partials/global";
 
 .upload-page {
+  &__desktop-main {
+    display: none;
+    @include desktop() {
+      display: inline;
+      width: 50%;
+    }
+  }
+  &__mobile-main {
+    @include desktop() {
+      display: none;
+    }
+  }
   &-header {
     padding: 4rem;
     @include pageHeaderMobile();
@@ -11,6 +23,16 @@
       padding-bottom: 6rem;
       @include headerTitle();
       border-bottom: 1px solid $secondary-color-mercury;
+
+      @include desktop() {
+        margin: 0 63px;
+        padding: 6rem;
+      }
+    }
+  }
+  &__hero-section {
+    @include desktop() {
+      width: 34%;
     }
   }
   &__hero-section-title {
@@ -19,6 +41,10 @@
     color: $primary-color-silver;
     @include tablet() {
       padding: 0 8rem;
+      @include desktop() {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
     }
   }
   &__hero-section-image {
@@ -33,10 +59,19 @@
       width: 50%;
       padding-left: 4rem;
     }
+    @include desktop() {
+      width: 100%;
+
+      &-container {
+      }
+    }
   }
 }
 
 .upload-form {
+  &-desktop {
+    display: none;
+  }
   &__label-title {
     @include sectionHeaderMobile();
     color: $primary-color-silver;
@@ -168,6 +203,14 @@
       color: $primary-color-white;
 
       background-repeat: no-repeat;
+    }
+  }
+}
+
+.upload-page-header {
+  &__desktop-main {
+    @include desktop() {
+      display: flex;
     }
   }
 }
