@@ -13,7 +13,7 @@ import CommentDetails from "./Comments/CommentDetails";
 import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
-const API_KEY = "cdbf441b-edda-4ae3-9dbc-993c52c69a5f";
+const API_KEY = "3d460510-ea58-4cc5-8c3c-8e9c4ac6c9d0";
 
 export default class VideoPage extends Component {
   state = {
@@ -109,9 +109,29 @@ export default class VideoPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.tempComments);
+    axios
+      .post(
+        `https://project-2-api.herokuapp.com/videos/${this.state.defaultID}/comments?api_key=${API_KEY}`,
+        { name: "BrainStation", comment: this.state.tempComments }
+      )
+      .then((response) => {
+        console.log(response);
+        axios
+          .get(
+            "https://project-2-api.herokuapp.com/videos/" +
+              this.state.defaultID +
+              "?api_key=" +
+              API_KEY
+          )
+          .then((response) => {
+            console.log(this.state);
+            this.setState({
+              mainVideoListComment: response.data.comments,
+            });
+            console.log(this.state);
+          });
+      });
     this.setState({ tempComments: "" });
-    console.log(event);
   };
 
   handleComment = (event) => {
