@@ -28,34 +28,28 @@ function Comments({ count, handleSubmit, handleComment, value }) {
               >
                 JOIN THE CONVERSATION
               </label>
-              <input
-                onChange={(event) => {
-                  handleComment(event);
-                }}
-                value={value}
-                id="comment"
-                className="insert-comment-container__form-comment-input"
-                name="formcomment"
-                placeholder="Add new comment"
-              />
-              <div className="insert-comment-container__button-container">
-                <button
-                  type="submit"
-                  className="insert-comment-container__form-button"
-                >
-                  COMMENT
-                </button>
+              <div className="insert-comment-container__form-comment-container-main">
+                <input
+                  onChange={(event) => {
+                    handleComment(event);
+                  }}
+                  value={value}
+                  id="comment"
+                  className="insert-comment-container__form-comment-input"
+                  name="formcomment"
+                  placeholder="Add new comment"
+                />
+                <div className="insert-comment-container__button-container">
+                  <button
+                    type="submit"
+                    className="insert-comment-container__form-button"
+                  >
+                    COMMENT
+                  </button>
+                </div>
               </div>
             </div>
           </form>
-          <div className="insert-comment-container__button-container--tablet">
-            <button
-              type="submit"
-              className="insert-comment-container__form-button--tablet"
-            >
-              COMMENT
-            </button>
-          </div>
         </div>
       </div>
     </div>

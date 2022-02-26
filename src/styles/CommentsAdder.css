@@ -23,6 +23,19 @@
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 3rem;
 }
+.comments-details-container__button {
+  background-color: #0095ff;
+  border-radius: 1remx;
+  border-style: none;
+  height: 10rem;
+  color: #ffffff;
+  width: auto;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: averiNextBold;
+}
 @media (min-width: 769px) {
   .comments-details-container {
     padding: 6rem 0;
@@ -108,32 +121,4 @@
     line-height: 22px;
     font-family: averiNextRegular;
   }
-}
-.comments-details-container__button {
-  background-color: #0095ff;
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  line-height: 22px;
-  font-family: averiNextBold;
-  height: 40px;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  outline: none;
-  padding: 10px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: color 100ms;
-  vertical-align: baseline;
-  -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
 }/*# sourceMappingURL=CommentsAdder.css.map */

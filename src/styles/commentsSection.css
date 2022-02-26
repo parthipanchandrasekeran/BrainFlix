@@ -88,7 +88,6 @@
 }
 .insert-comment-container__main {
   display: flex;
-  justify-content: space-between;
   border-bottom: solid 1px #e1e1e1;
 }
 @media (min-width: 769px) {
@@ -121,22 +120,32 @@
     margin-left: 6rem;
   }
 }
+@media (min-width: 769px) {
+  .insert-comment-container__form-comment-container-main {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 .insert-comment-container__form-comment-input {
   height: 25rem;
   resize: none;
   margin-bottom: 3rem;
   border: 1px solid #e1e1e1;
+  width: 100%;
   font-size: 13px;
   line-height: 18px;
   font-family: averiNextRegular;
   padding: 2rem;
   color: #323232;
   border-radius: 1rem;
+  padding-bottom: 18rem;
+  padding-top: 3rem;
 }
 @media (min-width: 769px) {
   .insert-comment-container__form-comment-input {
+    width: 70%;
+    padding-bottom: 3rem;
     height: 10rem;
-    margin-bottom: 4rem;
   }
 }
 .insert-comment-container__form-comment-input:focus {
@@ -171,11 +180,6 @@
   background-position: 1rem 2.5rem;
   margin-bottom: 3rem;
 }
-@media (min-width: 769px) {
-  .insert-comment-container__form-button {
-    display: none;
-  }
-}
 .insert-comment-container__form-button--tablet {
   height: 10rem;
   min-width: 150px;
@@ -201,14 +205,9 @@
     font-family: averiNextBold;
   }
 }
-.insert-comment-container__button-container--tablet {
-  display: none;
-}
 @media (min-width: 769px) {
-  .insert-comment-container__button-container--tablet {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    padding-bottom: 4rem;
+  .insert-comment-container__button-container {
+    width: 20%;
+    padding-right: 4rem;
   }
 }/*# sourceMappingURL=commentsSection.css.map */

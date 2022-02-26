@@ -8,6 +8,20 @@
   border-bottom: 1px solid $secondary-color-mercury;
   margin-bottom: 3rem;
 
+  &__button {
+    background-color: $primary-color-blue;
+    border-radius: 1remx;
+    border-style: none;
+    height: 10rem;
+    color: $primary-color-white;
+    width: auto;
+    padding: 1rem;
+
+    cursor: pointer;
+
+    @include bodyCopyText();
+  }
+
   @include tablet() {
     padding: 6rem 0;
     margin: 0 9rem;
@@ -72,29 +86,5 @@
     @include tablet() {
       @include bodyCopyTextMobile();
     }
-  }
-  &__button {
-    background-color: $primary-color-blue;
-    border-radius: 8px;
-    border-style: none;
-    box-sizing: border-box;
-    color: #ffffff;
-    cursor: pointer;
-    display: inline-block;
-    @include bodyCopyText();
-    height: 40px;
-    line-height: 20px;
-    list-style: none;
-    margin: 0;
-    outline: none;
-    padding: 10px 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: color 100ms;
-    vertical-align: baseline;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
   }
 }
