@@ -9,7 +9,7 @@ import HeroVideo from "./HeroVideo";
 import dateFormatter from "./VideoDetails/dateFormatter";
 import Comments from "./Comments/Comments";
 import commentCounter from "./Comments/commentCounter";
-import CommentDetails from "./Comments/CommentDetails";
+import CommentDetails from "./Comments/commentDetails";
 import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
