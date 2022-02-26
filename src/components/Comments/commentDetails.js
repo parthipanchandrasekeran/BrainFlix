@@ -20,7 +20,7 @@ export default function CommentDetails({
             }}
             className="comments-details-container__button"
           >
-            D{commentID}
+            DELETE
           </button>
         </div>
         <p className="comments-details-container__comments-details">

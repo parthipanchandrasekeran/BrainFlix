@@ -13,7 +13,7 @@ import CommentDetails from "./Comments/CommentDetails";
 import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
-const API_KEY = "c992036e-af16-4344-92cb-335a5502d6ac";
+const API_KEY = "39558d9d-6a0f-4a5d-8b8c-84eea03ecabf";
 
 export default class VideoPage extends Component {
   state = {
