@@ -14,6 +14,8 @@ import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
 import getcallfunction from "./getcallfunc";
+import { uniqueId } from "lodash";
+
 const API_KEY = "39558d9d-6a0f-4a5d-8b8c-84eea03ecabf";
 
 export default class VideoPage extends Component {
@@ -27,24 +29,17 @@ export default class VideoPage extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get("https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY)
-      .then((response) => {
-        const videoIDMain = response.data[0].id;
-        this.setState({ sideVideoList: response.data });
-        axios
-          .get(
-            "https://project-2-api.herokuapp.com/videos/" +
-              videoIDMain +
-              "?api_key=" +
-              API_KEY
-          )
-          .then((response) => {
-            this.setState({ mainVideoList: response.data });
-            this.setState({ mainVideoListComment: response.data.comments });
-            this.setState({ defaultID: response.data.id });
-          });
-      });
+    axios.get("http://localhost:4000/videos/").then((response) => {
+      const videoIDMain = response.data[0].id;
+      this.setState({ sideVideoList: response.data });
+      axios
+        .get("http://localhost:4000/videos/" + videoIDMain)
+        .then((response) => {
+          this.setState({ mainVideoList: response.data });
+          this.setState({ mainVideoListComment: response.data.comments });
+          this.setState({ defaultID: response.data.id });
+        });
+    });
 
     getcallfunction();
   }
@@ -56,17 +51,10 @@ export default class VideoPage extends Component {
       this.props.match.path !== "/Home"
     ) {
       axios
-        .get(
-          "https://project-2-api.herokuapp.com/videos/" +
-            this.props.match.params.videoid +
-            "?api_key=" +
-            API_KEY
-        )
+        .get("http://localhost:4000/videos/" + this.props.match.params.videoid)
         .then((response) => {
           axios
-            .get(
-              "https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY
-            )
+            .get("http://localhost:4000/videos/")
             .then((response) => {
               const filteredArrayList = response.data.filter((video) => {
                 return video.id !== this.props.match.params.videoid;
@@ -89,41 +77,29 @@ export default class VideoPage extends Component {
       this.props.match.path === "/Home" &&
       this.state.firstVideoid === ""
     ) {
-      axios
-        .get("https://project-2-api.herokuapp.com/videos?api_key=" + API_KEY)
-        .then((response) => {
-          const videoIDMain = response.data[0].id;
-          this.setState({ sideVideoList: response.data });
-          axios
-            .get(
-              "https://project-2-api.herokuapp.com/videos/" +
-                videoIDMain +
-                "?api_key=" +
-                API_KEY
-            )
-            .then((response) => {
-              this.setState({ mainVideoList: response.data });
-              this.setState({
-                mainVideoListComment: response.data.comments,
-              });
-              this.setState({ defaultID: response.data.id });
-              this.setState({ firstVideoid: videoIDMain });
-            })
-            .catch((error) => {
-              console.log(error);
+      axios.get("http://localhost:4000/videos/").then((response) => {
+        const videoIDMain = response.data[0].id;
+        this.setState({ sideVideoList: response.data });
+        axios
+          .get("http://localhost:4000/videos/" + videoIDMain)
+          .then((response) => {
+            this.setState({ mainVideoList: response.data });
+            this.setState({
+              mainVideoListComment: response.data.comments,
             });
-        });
+            this.setState({ defaultID: response.data.id });
+            this.setState({ firstVideoid: videoIDMain });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
     }
   }
 
   updateMainComment() {
     axios
-      .get(
-        "https://project-2-api.herokuapp.com/videos/" +
-          this.state.defaultID +
-          "?api_key=" +
-          API_KEY
-      )
+      .get("http://localhost:4000/videos/" + this.state.defaultID)
       .then((response) => {
         this.setState({
           mainVideoListComment: response.data.comments,
@@ -173,24 +149,26 @@ export default class VideoPage extends Component {
   };
 
   render() {
-    const commentAdderList = this.state.mainVideoListComment.map((comments) => {
-      return (
-        <CommentDetails
-          key={comments.id}
-          name={comments.name}
-          comment={comments.comment}
-          timestamp={dateFormatter(comments.timestamp)}
-          commentID={comments.id}
-          deleteComment={this.deleteComment}
-        />
-      );
-    });
+    const commentAdderList = this.state.mainVideoListComment.map(
+      (comments, index) => {
+        return (
+          <CommentDetails
+            key={uniqueId()}
+            name={comments.name}
+            comment={comments.comment}
+            timestamp={dateFormatter(comments.timestamp)}
+            commentID={comments.id}
+            deleteComment={this.deleteComment}
+          />
+        );
+      }
+    );
 
     const videoAdderList = this.state.sideVideoList.map((comments, index) => {
       if (index > 0) {
         return (
           <VideoList
-            key={comments.id}
+            key={uniqueId()}
             image={comments.image}
             title={comments.title}
             channel={comments.channel}
@@ -209,7 +187,7 @@ export default class VideoPage extends Component {
           <div className="desktop-main__desktop-sub-container">
             <VideoDetails
               details={this.state.mainVideoList}
-              key={this.state.mainVideoList.id}
+              key={uniqueId()}
               date={dateFormatter(this.state.mainVideoList.timestamp)}
             />
             <Comments

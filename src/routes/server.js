@@ -370,6 +370,14 @@ const videoDetails = [
 
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const PORT = 4000;
+
+app.use(cors({ origin: "http://localhost:3000" }));
+
+app.listen(PORT, () => {
+  console.log("server with nodemon");
+});
 
 app
   .route("/videos")
@@ -390,8 +398,4 @@ app.route("/videos/:videoID").get((req, res) => {
   } else {
     res.status(404).send("no luck");
   }
-});
-
-app.listen(4000, () => {
-  console.log("server with nodemon");
 });
