@@ -369,29 +369,16 @@ const videoDetails = [
 ];
 
 const express = require("express");
-const app = express();
-const cors = require("cors");
-const PORT = 4000;
+
+const router = express.Router();
 
 const ingredients = ["salt", "chicken", "pork", "fish"];
 
-app.use(cors());
-
-app.listen(PORT, () => {
-  console.log("server with nodemon");
+router.get("/videos", (req, res) => {
+  res.status(202).send(videos);
 });
 
-app
-  .route("/videos")
-  .get((req, res) => {
-    res.status(202).send(videos);
-  })
-
-  .put((req, res) => {
-    res.json(req.query);
-  });
-
-app.route("/videos/:videoID").get((req, res) => {
+router.get("/videos/:videoID", (req, res) => {
   const mainVideoDetails = videoDetails.find((video) => {
     return video.id === req.params.videoID;
   });
@@ -402,6 +389,7 @@ app.route("/videos/:videoID").get((req, res) => {
   }
 });
 
+/*
 app.route("/famousdish").get((req, res) => {
   res.status(202).send("famous dish is surf and tail lobster");
 });
@@ -428,3 +416,6 @@ app.route("/ingredients/:ingredient").get((req, res) => {
       : "That ingredient is out of stock"
   );
 });
+*/
+
+module.exports = router;
