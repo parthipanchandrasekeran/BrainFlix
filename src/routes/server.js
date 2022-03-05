@@ -373,7 +373,9 @@ const app = express();
 const cors = require("cors");
 const PORT = 4000;
 
-app.use(cors({ origin: "http://localhost:3000" }));
+const ingredients = ["salt", "chicken", "pork", "fish"];
+
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log("server with nodemon");
@@ -398,4 +400,31 @@ app.route("/videos/:videoID").get((req, res) => {
   } else {
     res.status(404).send("no luck");
   }
+});
+
+app.route("/famousdish").get((req, res) => {
+  res.status(202).send("famous dish is surf and tail lobster");
+});
+app.route("/ingredients").get((req, res) => {
+  res.json(ingredients);
+});
+
+app.route("/orders").post((req, res) => {
+  res
+    .status(503)
+    .send(
+      "We are not taking orders at this time. Our service is temporarily down."
+    );
+});
+
+app.route("/ingredients/:ingredient").get((req, res) => {
+  const selectedIng = ingredients.find((item) => {
+    return item === req.params.ingredient;
+  });
+
+  res.send(
+    selectedIng
+      ? "That ingredient is in stock"
+      : "That ingredient is out of stock"
+  );
 });
