@@ -4,12 +4,12 @@ const app = express();
 const cors = require("cors");
 const { PORT, BACKEND_URL } = process.env;
 const parser = require("body-parser");
-console.log(PORT);
 const videosRoute = require("./routes/videos");
 const bodyParser = require("body-parser");
 
 app.use(express.static("public"));
 app.use("/static", express.static("public/Upload-video-preview.jpg"));
+app.use(express.json());
 /*
 app.use((req, res, next) => {
   const value = req.url.replace("/", "");

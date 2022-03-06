@@ -15,7 +15,6 @@ export class UploadForm extends Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
 
     if (this.state.title && this.state.description !== "") {
@@ -26,8 +25,8 @@ export class UploadForm extends Component {
           channel: "Test Channel",
           image: STATIC_IMAGE_URL,
           description: this.state.description,
-          views: 0,
-          likes: 0,
+          views: 100,
+          likes: 200,
           duration: 5,
           video: STATIC_IMAGE_URL,
           timestamp: TIME,
@@ -58,10 +57,9 @@ export class UploadForm extends Component {
         })
 
         .then((response) => {
-          console.log(response);
+          alert("Video Submitted Successfully!!lets go to Home Page Now");
+          this.props.match.history.push("/Home");
         });
-      alert("Video Submitted Successfully!!lets go to Home Page Now");
-      this.props.match.history.push("/Home");
     } else {
       alert("Please Enter Title/Description to proceed");
     }

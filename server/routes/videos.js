@@ -1,17 +1,15 @@
 let videoDetails = [];
-let videos = [];
 const express = require("express");
 const fs = require("fs");
 const router = express.Router();
 
-fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
-  if (err) throw err;
-
-  videoDetails = JSON.parse(data);
-});
-
 router.get("/videos", (_, res) => {
-  res.status(202).send(videoDetails);
+  fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
+    if (err) throw err;
+
+    videoDetails = JSON.parse(data);
+    res.status(202).send(videoDetails);
+  });
 });
 
 router.get("/videos/:videoID", (req, res) => {
@@ -25,7 +23,21 @@ router.get("/videos/:videoID", (req, res) => {
 });
 
 router.post("/upload/:id", (req, res) => {
-  res.status(202).send(req.body);
+  fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
+    if (err) throw err;
+
+    const tempVideoDetails = JSON.parse(data);
+
+    tempVideoDetails.push(req.body);
+
+    fs.writeFile(
+      "./data/video-details.json",
+      JSON.stringify(tempVideoDetails),
+      () => {
+        res.status(202).send(tempVideoDetails);
+      }
+    );
+  });
 });
 
 module.exports = router;

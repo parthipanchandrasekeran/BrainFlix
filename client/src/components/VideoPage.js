@@ -30,7 +30,6 @@ export default class VideoPage extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:4000/videos/").then((response) => {
-      console.log(response.data);
       const videoIDMain = response.data[0].id;
       this.setState({ sideVideoList: response.data });
       axios
