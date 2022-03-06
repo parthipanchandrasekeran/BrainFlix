@@ -13,7 +13,7 @@ import CommentDetails from "./Comments/commentDetails";
 import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
-import getcallfunction from "./getcallfunc";
+
 import uuid from "react-native-uuid";
 
 const API_KEY = "39558d9d-6a0f-4a5d-8b8c-84eea03ecabf";
@@ -30,6 +30,7 @@ export default class VideoPage extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:4000/videos/").then((response) => {
+      console.log(response.data);
       const videoIDMain = response.data[0].id;
       this.setState({ sideVideoList: response.data });
       axios
@@ -40,8 +41,6 @@ export default class VideoPage extends Component {
           this.setState({ defaultID: response.data.id });
         });
     });
-
-    getcallfunction();
   }
 
   componentDidUpdate(prevprops) {

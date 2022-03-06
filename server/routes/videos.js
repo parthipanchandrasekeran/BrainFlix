@@ -10,14 +10,8 @@ fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
   videoDetails = JSON.parse(data);
 });
 
-fs.readFile("./data/videos.json", "utf-8", (err, data) => {
-  if (err) throw err;
-
-  videos = JSON.parse(data);
-});
-
 router.get("/videos", (_, res) => {
-  res.status(202).send(videos);
+  res.status(202).send(videoDetails);
 });
 
 router.get("/videos/:videoID", (req, res) => {
