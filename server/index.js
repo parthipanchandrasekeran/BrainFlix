@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { PORT, BACKEND_URL } = process.env;
-const parser = require("body-parser");
 const videosRoute = require("./routes/videos");
 const bodyParser = require("body-parser");
 
@@ -23,8 +22,6 @@ app.use((req, res, next) => {
 });*/
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.use("/", videosRoute);
 
