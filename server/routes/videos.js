@@ -24,4 +24,8 @@ router.get("/videos/:videoID", (req, res) => {
     : res.status(404).send("no luck");
 });
 
+router.post("/upload/:id", (req, res) => {
+  res.status(202).send(req.body);
+});
+
 module.exports = router;

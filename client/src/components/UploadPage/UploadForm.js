@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import axios from "axios";
+import uuid from "react-native-uuid";
+const STATIC_IMAGE_URL = "http://localhost:4000/static";
+const TIME = Date.now();
 
 export class UploadForm extends Component {
   state = {
@@ -13,7 +17,49 @@ export class UploadForm extends Component {
   handleSubmit(event) {
     console.log(this.state);
     event.preventDefault();
+
     if (this.state.title && this.state.description !== "") {
+      const tempUUID = uuid.v4();
+      axios
+        .post("http://localhost:4000/upload/" + tempUUID, {
+          title: this.state.title,
+          channel: "Test Channel",
+          image: STATIC_IMAGE_URL,
+          description: this.state.description,
+          views: 0,
+          likes: 0,
+          duration: 5,
+          video: STATIC_IMAGE_URL,
+          timestamp: TIME,
+          comments: [
+            {
+              name: "Micheal Lyons",
+              comment:
+                "They BLEW the ROOF off at their last event, once everyone started figuring out they were going. This is still simply the greatest opening of an event I have EVER witnessed.",
+              likes: 0,
+              timestamp: TIME,
+            },
+            {
+              name: "Gary Wong",
+              comment:
+                "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
+              likes: 0,
+              timestamp: TIME,
+            },
+            {
+              name: "Theodore Duncan",
+              comment:
+                "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Every time I see him I feel instantly happy! He’s definitely my favorite ever!",
+              likes: 0,
+              timestamp: TIME,
+            },
+          ],
+          id: tempUUID,
+        })
+
+        .then((response) => {
+          console.log(response);
+        });
       alert("Video Submitted Successfully!!lets go to Home Page Now");
       this.props.match.history.push("/Home");
     } else {
