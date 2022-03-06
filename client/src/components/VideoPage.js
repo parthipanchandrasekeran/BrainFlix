@@ -14,7 +14,7 @@ import VideoList from "./VideoList/VideoList";
 import VideoListHeader from "./VideoList/VideoListHeader";
 import axios from "axios";
 import getcallfunction from "./getcallfunc";
-import { uniqueId } from "lodash";
+import uuid from "react-native-uuid";
 
 const API_KEY = "39558d9d-6a0f-4a5d-8b8c-84eea03ecabf";
 
@@ -153,7 +153,7 @@ export default class VideoPage extends Component {
       (comments, index) => {
         return (
           <CommentDetails
-            key={uniqueId()}
+            key={uuid.v4()}
             name={comments.name}
             comment={comments.comment}
             timestamp={dateFormatter(comments.timestamp)}
@@ -168,7 +168,7 @@ export default class VideoPage extends Component {
       if (index > 0) {
         return (
           <VideoList
-            key={uniqueId()}
+            key={uuid.v4()}
             image={comments.image}
             title={comments.title}
             channel={comments.channel}
@@ -187,7 +187,7 @@ export default class VideoPage extends Component {
           <div className="desktop-main__desktop-sub-container">
             <VideoDetails
               details={this.state.mainVideoList}
-              key={uniqueId()}
+              key={uuid.v4()}
               date={dateFormatter(this.state.mainVideoList.timestamp)}
             />
             <Comments
