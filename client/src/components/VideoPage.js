@@ -30,6 +30,7 @@ export default class VideoPage extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:4000/videos/").then((response) => {
+      console.log(response);
       const videoIDMain = response.data[0].id;
       this.setState({ sideVideoList: response.data });
       axios
@@ -110,11 +111,14 @@ export default class VideoPage extends Component {
 
   postComment() {
     axios
-      .post(
-        `https://project-2-api.herokuapp.com/videos/${this.state.defaultID}/comments?api_key=${API_KEY}`,
-        { name: "BrainStation", comment: this.state.tempComments }
-      )
+      .post(`http://localhost:4000/videos/${this.state.defaultID}/comments`, {
+        name: "BrainStation",
+        comment: this.state.tempComments,
+        likes: 0,
+        timestamp: Date.now(),
+      })
       .then((response) => {
+        console.log(response);
         this.updateMainComment();
       })
       .catch((error) => {

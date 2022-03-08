@@ -40,4 +40,36 @@ router.post("/upload/:id", (req, res) => {
   });
 });
 
+router.post("/videos/:videoID/comments", (req, res) => {
+  fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
+    if (err) throw err;
+
+    const tempVideoDetails = JSON.parse(data);
+    const tempCommentBody = req.body;
+
+    const modifiedVideoList = tempVideoDetails.map((video) => {
+      const tempVideo = video;
+      tempVideo.comments.unshift(tempCommentBody);
+
+      if (video.id === req.params.videoID) {
+        console.log(tempVideo);
+        return { ...video, comments: tempVideo.comments };
+      }
+      return video;
+    });
+
+    const returnCommentList = modifiedVideoList.find((video) => {
+      return video.id === req.params.videoID;
+    });
+
+    fs.writeFile(
+      "./data/video-details.json",
+      JSON.stringify(modifiedVideoList),
+      () => {
+        res.status(202).send(modifiedVideoList);
+      }
+    );
+  });
+});
+
 module.exports = router;
