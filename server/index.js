@@ -4,7 +4,6 @@ const app = express();
 const cors = require("cors");
 const { PORT, BACKEND_URL } = process.env;
 const videosRoute = require("./routes/videos");
-const bodyParser = require("body-parser");
 
 app.use(express.static("public"));
 app.use("/static", express.static("public/Upload-video-preview.jpg"));

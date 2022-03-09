@@ -13,6 +13,7 @@ router.get("/videos", (_, res) => {
 });
 
 router.get("/videos/:videoID", (req, res) => {
+  //update get read call here
   const mainVideoDetails = videoDetails.find((video) => {
     return video.id === req.params.videoID;
   });
@@ -35,41 +36,40 @@ router.post("/upload/:id", (req, res) => {
       JSON.stringify(tempVideoDetails),
       () => {
         res.status(202).send(tempVideoDetails);
+        videoDetails = tempVideoDetails;
       }
     );
   });
 });
 
 router.post("/videos/:videoID/comments", (req, res) => {
-  fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
-    if (err) throw err;
-
-    const tempVideoDetails = JSON.parse(data);
-    const tempCommentBody = req.body;
-
-    const modifiedVideoList = tempVideoDetails.map((video) => {
-      const tempVideo = video;
-      tempVideo.comments.unshift(tempCommentBody);
+  const dataModifierCall = new Promise((resolve, reject) => {
+    const modifiedVideoList = videoDetails.map((video) => {
+      const tempComment = video.comments;
+      tempComment.unshift(req.body);
 
       if (video.id === req.params.videoID) {
-        console.log(tempVideo);
-        return { ...video, comments: tempVideo.comments };
+        //console.log(video.id + "   &   " + req.params.videoID);
+        return { ...video, comments: tempComment };
+      } else {
+        //console.log(video.id + "   &   " + req.params.videoID);
+        return video;
       }
-      return video;
     });
-
-    const returnCommentList = modifiedVideoList.find((video) => {
-      return video.id === req.params.videoID;
-    });
-
-    fs.writeFile(
-      "./data/video-details.json",
-      JSON.stringify(modifiedVideoList),
-      () => {
-        res.status(202).send(modifiedVideoList);
-      }
-    );
+    resolve(modifiedVideoList);
+    console.log(modifiedVideoList.comments);
   });
+  //const tempVideoDetails = JSON.parse(data);
+
+  dataModifierCall
+    .then((success) => {
+      fs.writeFile("./data/video-details.json", JSON.stringify(success), () => {
+        res.status(202).send(success);
+        videoDetails = success;
+        //console.log(success);
+      });
+    })
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;
