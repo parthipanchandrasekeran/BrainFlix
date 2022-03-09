@@ -44,28 +44,29 @@ router.post("/upload/:id", (req, res) => {
 
 router.post("/videos/:videoID/comments", (req, res) => {
   const dataModifierCall = new Promise((resolve, reject) => {
-    const modifiedVideoList = videoDetails.map((video) => {
-      const tempComment = video.comments;
-      tempComment.unshift(req.body);
+    fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
+      if (err) throw err;
 
-      if (video.id === req.params.videoID) {
-        //console.log(video.id + "   &   " + req.params.videoID);
-        return { ...video, comments: tempComment };
-      } else {
-        //console.log(video.id + "   &   " + req.params.videoID);
-        return video;
-      }
+      videoDetails = JSON.parse(data);
     });
-    resolve(modifiedVideoList);
-    console.log(modifiedVideoList.comments);
-  });
-  //const tempVideoDetails = JSON.parse(data);
 
+    const selectedVideo = videoDetails.filter((video) => {
+      return video.id === req.params.videoID;
+    });
+
+    selectedVideo[0].comments.unshift(req.body);
+
+    const modifiedVideoList = videoDetails.filter((video) => {
+      return video.id !== req.params.videoID;
+    });
+
+    modifiedVideoList.unshift(selectedVideo);
+    resolve(modifiedVideoList);
+  });
   dataModifierCall
     .then((success) => {
       fs.writeFile("./data/video-details.json", JSON.stringify(success), () => {
         res.status(202).send(success);
-        videoDetails = success;
         //console.log(success);
       });
     })
