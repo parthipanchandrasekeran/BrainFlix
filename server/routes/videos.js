@@ -1,4 +1,4 @@
-let videoDetails = [];
+let videoDetails;
 const express = require("express");
 const fs = require("fs");
 const router = express.Router();
@@ -14,13 +14,26 @@ router.get("/videos", (_, res) => {
 
 router.get("/videos/:videoID", (req, res) => {
   //update get read call here
-  const mainVideoDetails = videoDetails.find((video) => {
-    return video.id === req.params.videoID;
+
+  const tempVideoList = new Promise((resolve, reject) => {
+    fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
+      if (err) throw err;
+
+      videoDetails = JSON.parse(data);
+
+      resolve(videoDetails);
+    });
   });
 
-  mainVideoDetails
-    ? res.status(202).send(mainVideoDetails)
-    : res.status(404).send("no luck");
+  tempVideoList.then((success) => {
+    const mainVideoDetails = success.find((video) => {
+      return video.id === req.params.videoID;
+    });
+
+    mainVideoDetails
+      ? res.status(202).send(mainVideoDetails)
+      : res.status(404).send("no luck");
+  });
 });
 
 router.post("/upload/:id", (req, res) => {
@@ -42,26 +55,34 @@ router.post("/upload/:id", (req, res) => {
   });
 });
 
+const readCallPromise = new Promise((resolve, reject) => {
+  fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
+    if (err) throw err;
+
+    videoDetails = JSON.parse(data);
+    resolve(videoDetails);
+  });
+});
+
 router.post("/videos/:videoID/comments", (req, res) => {
   const dataModifierCall = new Promise((resolve, reject) => {
-    fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
-      if (err) throw err;
+    readCallPromise.then((success) => {
+      const selectedVideo = success.filter((video) => {
+        return video.id === req.params.videoID;
+      });
 
-      videoDetails = JSON.parse(data);
+      console.log(selectedVideo);
+
+      selectedVideo[0].comments.unshift(req.body);
+
+      const modifiedVideoList = success.filter((video) => {
+        return video.id !== req.params.videoID;
+      });
+      console.log(modifiedVideoList);
+
+      modifiedVideoList.unshift(selectedVideo[0]);
+      resolve(modifiedVideoList);
     });
-
-    const selectedVideo = videoDetails.filter((video) => {
-      return video.id === req.params.videoID;
-    });
-
-    selectedVideo[0].comments.unshift(req.body);
-
-    const modifiedVideoList = videoDetails.filter((video) => {
-      return video.id !== req.params.videoID;
-    });
-
-    modifiedVideoList.unshift(selectedVideo);
-    resolve(modifiedVideoList);
   });
   dataModifierCall
     .then((success) => {

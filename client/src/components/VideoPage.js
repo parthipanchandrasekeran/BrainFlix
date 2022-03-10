@@ -119,7 +119,10 @@ export default class VideoPage extends Component {
       })
       .then((response) => {
         console.log(response);
-        this.updateMainComment();
+        //this.updateMainComment();
+        this.setState({
+          mainVideoListComment: response.data[0].comments,
+        });
       })
       .catch((error) => {
         console.log(error);
