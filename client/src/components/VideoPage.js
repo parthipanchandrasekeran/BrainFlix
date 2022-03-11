@@ -30,7 +30,6 @@ export default class VideoPage extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:4000/videos/").then((response) => {
-      //console.log(response);
       const videoIDMain = response.data[0].id;
       this.setState({ sideVideoList: response.data });
       axios
@@ -40,6 +39,10 @@ export default class VideoPage extends Component {
           this.setState({ mainVideoListComment: response.data.comments });
           this.setState({ defaultID: response.data.id });
         });
+
+      console.log(response.data[0].likes);
+      const test = parseInt(response.data[0].likes.replace(/,/g, ""));
+      console.log(test.toLocaleString("en-CA"));
     });
   }
 
@@ -120,7 +123,7 @@ export default class VideoPage extends Component {
       })
       .then((response) => {
         console.log(response);
-        //this.updateMainComment();
+
         this.setState({
           mainVideoListComment: response.data[0].comments,
         });
@@ -136,12 +139,9 @@ export default class VideoPage extends Component {
         `http://localhost:4000/videos/${this.state.defaultID}/comments/${commentid}`
       )
       .then((response) => {
-        console.log(response);
-
         this.setState({
           mainVideoListComment: response.data[0].comments,
         });
-        //this.updateMainComment();
       })
       .catch((error) => {
         console.log(error);
@@ -150,7 +150,9 @@ export default class VideoPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.postComment();
+    this.state.tempComments !== ""
+      ? this.postComment()
+      : alert("Please Enter Something");
     this.setState({ tempComments: "" });
   };
 

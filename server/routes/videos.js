@@ -88,7 +88,6 @@ router.post("/videos/:videoID/comments", (req, res) => {
     .then((success) => {
       fs.writeFile("./data/video-details.json", JSON.stringify(success), () => {
         res.status(202).send(success);
-        //console.log(success);
       });
     })
     .catch((err) => console.log(err));
@@ -106,7 +105,7 @@ router.delete("/videos/:videoID/comments/:commentID", (req, res) => {
     const removedVideoList = success.filter((video) => {
       return video.id !== videoIDDeleted;
     });
-    //console.log(deletedVideo.data.comments[0]);
+
     const updatedCommentList = deletedVideo[0].comments.filter((comment) => {
       return String(comment.id) !== commentIDDeleted;
     });
@@ -117,14 +116,11 @@ router.delete("/videos/:videoID/comments/:commentID", (req, res) => {
 
     removedVideoList.unshift(updatedVideoList[0]);
 
-    //console.log(updatedVideoList);
-
     fs.writeFile(
       "./data/video-details.json",
       JSON.stringify(removedVideoList),
       () => {
         res.status(202).send(removedVideoList);
-        //console.log(success);
       }
     );
   });
