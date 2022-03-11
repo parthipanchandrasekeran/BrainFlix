@@ -115,6 +115,7 @@ export default class VideoPage extends Component {
         name: "BrainStation",
         comment: this.state.tempComments,
         likes: 0,
+        id: uuid.v4(),
         timestamp: Date.now(),
       })
       .then((response) => {
@@ -132,11 +133,11 @@ export default class VideoPage extends Component {
   deleteComment = (commentid) => {
     axios
       .delete(
-        `https://project-2-api.herokuapp.com/videos/${this.state.defaultID}/comments/${commentid}?api_key=${API_KEY}`
+        `http://localhost:4000/videos/${this.state.defaultID}/comments/${commentid}`
       )
       .then((response) => {
         console.log(response);
-        this.updateMainComment();
+        //this.updateMainComment();
       })
       .catch((error) => {
         console.log(error);

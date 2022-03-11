@@ -94,4 +94,27 @@ router.post("/videos/:videoID/comments", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+router.delete("/videos/:videoID/comments/:commentID", (req, res) => {
+  const videoIDDeleted = req.params.videoID;
+  const commentIDDeleted = req.params.commentID;
+
+  readCallPromise.then((success) => {
+    const deletedVideo = success.filter((video) => {
+      return video.id === videoIDDeleted;
+    });
+    //console.log(deletedVideo.data.comments[0]);
+    const updatedCommentList = deletedVideo[0].comments.filter((comment) => {
+      return String(comment.id) !== commentIDDeleted;
+    });
+
+    const updatedVideoList = [
+      { ...deletedVideo, comments: updatedCommentList },
+    ];
+    //console.log(updatedVideoList);
+
+    res.status(202).send(updatedVideoList);
+    console.log(updatedVideoList);
+  });
+});
+
 module.exports = router;
