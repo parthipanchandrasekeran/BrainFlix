@@ -102,18 +102,31 @@ router.delete("/videos/:videoID/comments/:commentID", (req, res) => {
     const deletedVideo = success.filter((video) => {
       return video.id === videoIDDeleted;
     });
+
+    const removedVideoList = success.filter((video) => {
+      return video.id !== videoIDDeleted;
+    });
     //console.log(deletedVideo.data.comments[0]);
     const updatedCommentList = deletedVideo[0].comments.filter((comment) => {
       return String(comment.id) !== commentIDDeleted;
     });
 
     const updatedVideoList = [
-      { ...deletedVideo, comments: updatedCommentList },
+      { ...deletedVideo[0], comments: updatedCommentList },
     ];
+
+    removedVideoList.unshift(updatedVideoList[0]);
+
     //console.log(updatedVideoList);
 
-    res.status(202).send(updatedVideoList);
-    console.log(updatedVideoList);
+    fs.writeFile(
+      "./data/video-details.json",
+      JSON.stringify(removedVideoList),
+      () => {
+        res.status(202).send(removedVideoList);
+        //console.log(success);
+      }
+    );
   });
 });
 
