@@ -126,4 +126,28 @@ router.delete("/videos/:videoID/comments/:commentID", (req, res) => {
   });
 });
 
+router.put("/videos/:videoID/likes", (req, res) => {
+  readCallPromise.then((success) => {
+    const likedVideo = success.filter((video) => {
+      return video.id === req.params.videoID;
+    });
+
+    let tempLike = 0;
+    tempLike = parseInt(likedVideo[0].likes.replace(/,/g, ""));
+    tempLike++;
+    likedVideo[0].likes = tempLike.toLocaleString("en-CA");
+    success.splice(0, 1, likedVideo[0]);
+
+    const finalVideoList = success;
+
+    fs.writeFile(
+      "./data/video-details.json",
+      JSON.stringify(finalVideoList),
+      () => {
+        res.status(202).send(finalVideoList);
+      }
+    );
+  });
+});
+
 module.exports = router;

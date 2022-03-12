@@ -30,6 +30,9 @@ function VideoDetails(props) {
           </div>
           <div className="video-details-container__likes-container">
             <img
+              onClick={(event) => {
+                props.likeIncrement(event, props.details.id);
+              }}
               className="video-details-container__likes-icon"
               src={likesicon}
             ></img>

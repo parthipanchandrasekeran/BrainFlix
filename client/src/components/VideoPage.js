@@ -40,9 +40,9 @@ export default class VideoPage extends Component {
           this.setState({ defaultID: response.data.id });
         });
 
-      console.log(response.data[0].likes);
+      // console.log(response.data[0].likes);
       const test = parseInt(response.data[0].likes.replace(/,/g, ""));
-      console.log(test.toLocaleString("en-CA"));
+      //console.log(test.toLocaleString("en-CA"));
     });
   }
 
@@ -160,6 +160,15 @@ export default class VideoPage extends Component {
     this.setState({ tempComments: event.target.value });
   };
 
+  likeIncrement = (event, videoID) => {
+    //event.preventDefault();
+    axios
+      .put("http://localhost:4000/videos/" + videoID + "/likes")
+      .then((success) => {
+        this.setState({ mainVideoList: success.data[0] });
+      });
+  };
+
   render() {
     const commentAdderList = this.state.mainVideoListComment.map(
       (comments, index) => {
@@ -201,6 +210,7 @@ export default class VideoPage extends Component {
               details={this.state.mainVideoList}
               key={uuid.v4()}
               date={dateFormatter(this.state.mainVideoList.timestamp)}
+              likeIncrement={this.likeIncrement}
             />
             <Comments
               handleSubmit={this.handleSubmit}
