@@ -133,6 +133,7 @@ router.put("/videos/:videoID/likes", (req, res) => {
     });
 
     let tempLike = 0;
+    console.log(req.params.videoID);
     tempLike = parseInt(likedVideo[0].likes.replace(/,/g, ""));
     tempLike++;
     likedVideo[0].likes = tempLike.toLocaleString("en-CA");
