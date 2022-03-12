@@ -61,6 +61,7 @@
   &__right-main {
     display: flex;
     flex-direction: column;
+    width: 100%;
     @include tablet() {
       padding-left: 6rem;
       margin-right: 6rem;
