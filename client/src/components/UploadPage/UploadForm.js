@@ -25,26 +25,12 @@ export class UploadForm extends Component {
           channel: "Test Channel",
           image: STATIC_IMAGE_URL,
           description: this.state.description,
-          views: 100,
-          likes: 200,
+          views: 1,
+          likes: 1,
           duration: 5,
           video: STATIC_IMAGE_URL,
           timestamp: TIME,
           comments: [
-            {
-              name: "Micheal Lyons",
-              comment:
-                "They BLEW the ROOF off at their last event, once everyone started figuring out they were going. This is still simply the greatest opening of an event I have EVER witnessed.",
-              likes: 0,
-              timestamp: TIME,
-            },
-            {
-              name: "Gary Wong",
-              comment:
-                "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-              likes: 0,
-              timestamp: TIME,
-            },
             {
               name: "Theodore Duncan",
               comment:
