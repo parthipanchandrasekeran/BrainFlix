@@ -2,6 +2,7 @@ let videoDetails;
 const express = require("express");
 const fs = require("fs");
 const router = express.Router();
+const commaNumber = require("comma-number");
 
 router.get("/videos", (_, res) => {
   fs.readFile("./data/video-details.json", "utf-8", (err, data) => {
@@ -132,11 +133,16 @@ router.put("/videos/:videoID/likes", (req, res) => {
       return video.id === req.params.videoID;
     });
 
-    let tempLike = 0;
-    console.log(req.params.videoID);
-    tempLike = parseInt(likedVideo[0].likes.replace(/,/g, ""));
-    tempLike++;
-    likedVideo[0].likes = tempLike.toLocaleString("en-CA");
+    const tempLike = String(likedVideo[0].likes);
+    let like =
+      tempLike.length > 3
+        ? parseInt(tempLike.replace(/,/g, ""))
+        : parseInt(tempLike);
+
+    like++;
+
+    const finalLike = commaNumber(like);
+    likedVideo[0].likes = finalLike;
     success.splice(0, 1, likedVideo[0]);
 
     const finalVideoList = success;
