@@ -143,15 +143,18 @@ router.put("/videos/:videoID/likes", (req, res) => {
 
     const finalLike = commaNumber(like);
     likedVideo[0].likes = finalLike;
-    success.splice(0, 1, likedVideo[0]);
 
-    const finalVideoList = success;
+    const filteredVideoList = success.filter((video) => {
+      return video.id !== req.params.videoID;
+    });
+
+    filteredVideoList.unshift(likedVideo[0]);
 
     fs.writeFile(
       "./data/video-details.json",
-      JSON.stringify(finalVideoList),
+      JSON.stringify(filteredVideoList),
       () => {
-        res.status(202).send(finalVideoList);
+        res.status(202).send(filteredVideoList);
       }
     );
   });

@@ -38,9 +38,6 @@ export default class VideoPage extends Component {
           this.setState({ mainVideoList: response.data });
           this.setState({ mainVideoListComment: response.data.comments });
           this.setState({ defaultID: response.data.id });
-          console.log(this.state.mainVideoList);
-          console.log(this.state.defaultID);
-          console.log(this.state.firstVideoid);
         });
     });
   }
@@ -121,8 +118,6 @@ export default class VideoPage extends Component {
         timestamp: Date.now(),
       })
       .then((response) => {
-        console.log(response);
-
         this.setState({
           mainVideoListComment: response.data[0].comments,
         });
@@ -165,7 +160,6 @@ export default class VideoPage extends Component {
       .then((success) => {
         this.setState({ mainVideoList: success.data[0] });
         this.setState({ defaultID: success.data[0].id });
-        this.setState({ mainVideoListComment: success.data[0].comments });
       });
   };
 
